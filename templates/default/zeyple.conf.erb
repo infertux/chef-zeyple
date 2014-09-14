@@ -1,0 +1,10 @@
+[zeyple]
+log_file = <%= node['zeyple']['log_file'] %>
+
+[gpg]
+home = <%= "#{node['zeyple']['data_dir']}/keys" %>
+
+[relay]
+host = <%= node['zeyple']['relay']['host'] %>
+port = <%= node['zeyple']['relay']['port'] %>
+
