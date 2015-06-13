@@ -19,12 +19,10 @@ directory "#{node['zeyple']['data_dir']}/keys" do
 end
 
 node['zeyple']['gpg']['keys'].each do |key|
-
   execute "gpg --homedir #{node['zeyple']['data_dir']}/keys --keyserver #{node['zeyple']['gpg']['server']} --recv-keys #{key}" do
     user node['zeyple']['user']
     group node['zeyple']['user']
   end
-
 end
 
 remote_file node['zeyple']['script'] do
