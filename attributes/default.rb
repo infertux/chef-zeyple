@@ -19,5 +19,5 @@ default['zeyple']['relay']['port'] = '10026'
 default['zeyple']['gpg']['server'] = 'hkp://keys.gnupg.net'
 default['zeyple']['script'] = '/usr/sbin/zeyple'
 
-default['zeyple']['upstream']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/master/zeyple/zeyple.py"
-default['zeyple']['upstream']['checksum'] = 'fed33f55b5169425293a340cf02b4b2b5ee44f4ec2bdd1c707ea7031bd66b215'
+default['zeyple']['upstream']['url'] = 'https://raw.githubusercontent.com/infertux/zeyple/master/zeyple/zeyple.py'
+default['zeyple']['upstream']['checksum'] = '078a1101b65bfdaba3451ade8ea5841e9e6b3606b4ea468c68bf97c794fb693f'
