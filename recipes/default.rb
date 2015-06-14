@@ -53,7 +53,6 @@ end
 ruby_block "ensure that master.cf has the configuration" do
   block do
     master = Chef::Util::FileEdit.new("/etc/postfix/master.cf")
-
     master.insert_line_if_no_match(/zeyple/, <<-EOH)
 
 zeyple    unix  -       n       n       -       -       pipe
@@ -82,6 +81,7 @@ ruby_block "ensure that zeyple is enabled and reload postfix if needed" do
     main.insert_line_if_no_match(/\A#{line}/, "\n#{line}")
     main.write_file
 
-    system "postfix reload" if main.file_edited?
+    # TODO: is it worth depending on postfix cookbook and use `notifies :reload, 'service[postfix]'`?
+    Mixlib::ShellOut.new("postfix reload").run_command if main.file_edited?
   end
 end
