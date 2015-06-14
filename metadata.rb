@@ -4,7 +4,7 @@ maintainer_email 'cedric@felizard.fr'
 license          'MIT'
 description      'Installs/Configures Zeyple'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.1.0'
+version          '1.0.0'
 
 supports 'centos'
 supports 'debian'
