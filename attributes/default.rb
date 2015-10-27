@@ -9,8 +9,16 @@ default['zeyple']['gpg']['keys'] = []
 
 # You might configure these attributes (defaults are fine)
 
+default['zeyple']['dependencies'] = %w(gnupg sudo)
+
+case node['platform_family']
+when 'rhel'
+  default['zeyple']['dependencies'] << 'pygpgme'
+else
+  default['zeyple']['dependencies'] << 'python-gpgme'
+end
+
 default['zeyple']['user'] = 'zeyple'
-default['zeyple']['dependencies'] = %w(gnupg python-gpgme sudo)
 default['zeyple']['config_file'] = '/etc/zeyple.conf'
 default['zeyple']['data_dir'] = '/var/lib/zeyple'
 default['zeyple']['log_file'] = '/var/log/zeyple.log'
