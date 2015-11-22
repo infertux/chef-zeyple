@@ -18,7 +18,7 @@ Configure the list of key IDs to encrypt email with:
 ```json
 "zeyple": {
   "gpg": {
-    "keys": ["09A98A9B"]
+    "keys": ["0xEEC73D5809A98A9B"]
   }
 }
 ```
