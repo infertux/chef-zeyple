@@ -1,7 +1,7 @@
 Metrics/LineLength:
   Enabled: false
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/StringLiterals:

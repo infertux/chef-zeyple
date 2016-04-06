@@ -10,13 +10,12 @@ default['zeyple']['gpg']['keys'] = []
 # You might configure these attributes (defaults are fine)
 
 default['zeyple']['dependencies'] = %w(gnupg sudo)
-
-case node['platform_family']
-when 'rhel'
-  default['zeyple']['dependencies'] << 'pygpgme'
-else
-  default['zeyple']['dependencies'] << 'python-gpgme'
-end
+default['zeyple']['dependencies'] << case node['platform_family']
+                                     when 'rhel'
+                                       'pygpgme'
+                                     else
+                                       'python-gpgme'
+                                     end
 
 default['zeyple']['user'] = 'zeyple'
 default['zeyple']['config_file'] = '/etc/zeyple.conf'
