@@ -6,7 +6,8 @@ description      'Installs/Configures Zeyple'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url       'https://github.com/infertux/chef-zeyple'
 issues_url       'https://github.com/infertux/chef-zeyple/issues'
-version          '1.1.0'
+version          '1.2.1'
+chef_version     '>= 13.0'
 
 supports 'centos'
 supports 'debian'

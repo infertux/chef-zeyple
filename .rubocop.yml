@@ -1,5 +1,2 @@
-Metrics/LineLength:
-  Enabled: false
-
-Style/SpaceBeforeFirstArg:
+Metrics:
   Enabled: false

@@ -9,7 +9,7 @@ user node['zeyple']['user'] do
   system true
   shell '/usr/sbin/nologin'
   home node['zeyple']['data_dir']
-  supports manage_home: true
+  manage_home true
 end
 
 directory "#{node['zeyple']['data_dir']}/keys" do
@@ -53,7 +53,7 @@ file node['zeyple']['log_file'] do
   mode '0600'
 end
 
-ruby_block 'ensure that master.cf has the configuration' do
+ruby_block 'ensure that master.cf has the configuration' do # ~FC014
   block do
     master = Chef::Util::FileEdit.new('/etc/postfix/master.cf')
     master.insert_line_if_no_match(/zeyple/, <<-CONF.gsub(/^[ ]{2}/, ''))
