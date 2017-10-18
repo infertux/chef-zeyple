@@ -7,7 +7,7 @@ node['zeyple']['dependencies'].each { |pkg| package pkg }
 
 user node['zeyple']['user'] do
   system true
-  shell "/usr/sbin/nologin"
+  shell '/usr/sbin/nologin'
   home node['zeyple']['data_dir']
   supports manage_home: true
 end
@@ -15,7 +15,7 @@ end
 directory "#{node['zeyple']['data_dir']}/keys" do
   owner node['zeyple']['user']
   group node['zeyple']['user']
-  mode "0700"
+  mode '0700'
 end
 
 node['zeyple']['gpg']['keys'].each do |key|
@@ -32,11 +32,11 @@ remote_file node['zeyple']['script'] do
   source node['zeyple']['upstream']['url']
   owner node['zeyple']['user']
   group node['zeyple']['user']
-  mode "0700"
+  mode '0700'
   checksum node['zeyple']['upstream']['checksum']
 end
 
-execute "verify checksum" do
+execute 'verify checksum' do
   cwd ::File.dirname(node['zeyple']['script'])
   command %(echo "#{node['zeyple']['upstream']['checksum']}  #{node['zeyple']['script']}" | sha256sum -c -)
 end
@@ -44,18 +44,18 @@ end
 template node['zeyple']['config_file'] do
   owner node['zeyple']['user']
   group node['zeyple']['user']
-  mode "0400"
+  mode '0400'
 end
 
 file node['zeyple']['log_file'] do
   owner node['zeyple']['user']
   group node['zeyple']['user']
-  mode "0600"
+  mode '0600'
 end
 
-ruby_block "ensure that master.cf has the configuration" do
+ruby_block 'ensure that master.cf has the configuration' do
   block do
-    master = Chef::Util::FileEdit.new("/etc/postfix/master.cf")
+    master = Chef::Util::FileEdit.new('/etc/postfix/master.cf')
     master.insert_line_if_no_match(/zeyple/, <<-EOH)
 
 zeyple    unix  -       n       n       -       -       pipe
@@ -76,15 +76,15 @@ zeyple    unix  -       n       n       -       -       pipe
   end
 end
 
-ruby_block "ensure that zeyple is enabled and reload postfix if needed" do
+ruby_block 'ensure that zeyple is enabled and reload postfix if needed' do
   block do
-    line = "content_filter = zeyple"
+    line = 'content_filter = zeyple'
 
-    main = Chef::Util::FileEdit.new("/etc/postfix/main.cf")
+    main = Chef::Util::FileEdit.new('/etc/postfix/main.cf')
     main.insert_line_if_no_match(/\A#{line}/, "\n#{line}")
     main.write_file
 
     # TODO: is it worth depending on postfix cookbook and use `notifies :reload, 'service[postfix]'`?
-    Mixlib::ShellOut.new("postfix reload").run_command if main.file_edited?
+    Mixlib::ShellOut.new('postfix reload').run_command if main.file_edited?
   end
 end

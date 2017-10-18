@@ -3,7 +3,3 @@ Metrics/LineLength:
 
 Style/SpaceBeforeFirstArg:
   Enabled: false
-
-Style/StringLiterals:
-  Enabled: false
-
