@@ -68,8 +68,8 @@ ruby_block 'ensure that master.cf has the configuration' do # ~FC014
     -o smtpd_client_restrictions=
     -o smtpd_sender_restrictions=
     -o smtpd_recipient_restrictions=permit_mynetworks,reject
-    -o mynetworks=127.0.0.0/8
-    -o smtpd_authorized_xforward_hosts=127.0.0.0/8
+    -o mynetworks=127.0.0.0/8,[::1]/128
+    -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
     CONF
 
     master.write_file
