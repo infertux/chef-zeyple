@@ -9,7 +9,7 @@ default['zeyple']['gpg']['keys'] = []
 
 # You might configure these attributes (defaults are fine)
 
-default['zeyple']['dependencies'] = %w(gnupg sudo)
+default['zeyple']['dependencies'] = %w[gnupg sudo]
 default['zeyple']['dependencies'] << case node['platform_family']
                                      when 'rhel'
                                        'pygpgme'

@@ -56,21 +56,21 @@ end
 ruby_block 'ensure that master.cf has the configuration' do
   block do
     master = Chef::Util::FileEdit.new('/etc/postfix/master.cf')
-    master.insert_line_if_no_match(/zeyple/, <<-EOH)
+    master.insert_line_if_no_match(/zeyple/, <<-CONF.gsub(/^[ ]{2}/, ''))
 
-zeyple    unix  -       n       n       -       -       pipe
-  user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} \${recipient}
+  zeyple    unix  -       n       n       -       -       pipe
+    user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} \${recipient}
 
-#{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
-  -o content_filter=
-  -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
-  -o smtpd_helo_restrictions=
-  -o smtpd_client_restrictions=
-  -o smtpd_sender_restrictions=
-  -o smtpd_recipient_restrictions=permit_mynetworks,reject
-  -o mynetworks=127.0.0.0/8
-  -o smtpd_authorized_xforward_hosts=127.0.0.0/8
-    EOH
+  #{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
+    -o content_filter=
+    -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
+    -o smtpd_helo_restrictions=
+    -o smtpd_client_restrictions=
+    -o smtpd_sender_restrictions=
+    -o smtpd_recipient_restrictions=permit_mynetworks,reject
+    -o mynetworks=127.0.0.0/8
+    -o smtpd_authorized_xforward_hosts=127.0.0.0/8
+    CONF
 
     master.write_file
   end
