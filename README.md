@@ -32,4 +32,3 @@ Add the `zeyple` recipe to your run list:
 License
 -------
 MIT
-
