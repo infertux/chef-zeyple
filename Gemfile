@@ -5,7 +5,7 @@ group :development do
   gem 'rake'
 end
 
-group :lint do
+group :style do
   gem 'cookstyle'
   gem 'foodcritic'
 end

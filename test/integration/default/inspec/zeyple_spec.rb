@@ -31,7 +31,7 @@ control 'zeyple-1' do
 
   describe port(10_026) do
     it { should be_listening }
-    its('protocols') { should cmp %w(tcp tcp6) }
+    its('protocols') { should include 'tcp' }
     its('processes') { should eq %w(master) }
   end
 end
