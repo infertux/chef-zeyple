@@ -1,0 +1,9 @@
+DEPENDENCIES
+  zeyple
+    path: .
+    metadata: true
+
+GRAPH
+  postfix (5.2.1)
+  zeyple (1.2.2)
+    postfix (~> 5.2)

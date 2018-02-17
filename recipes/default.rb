@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-node['zeyple']['dependencies'].each { |pkg| package pkg }
+package node['zeyple']['dependencies']
 
 user node['zeyple']['user'] do
   system true
@@ -36,11 +36,6 @@ remote_file node['zeyple']['script'] do
   checksum node['zeyple']['upstream']['checksum']
 end
 
-execute 'verify checksum' do
-  cwd ::File.dirname(node['zeyple']['script'])
-  command %(echo "#{node['zeyple']['upstream']['checksum']}  #{node['zeyple']['script']}" | sha256sum -c -)
-end
-
 template node['zeyple']['config_file'] do
   owner node['zeyple']['user']
   group node['zeyple']['user']
@@ -53,38 +48,38 @@ file node['zeyple']['log_file'] do
   mode '0600'
 end
 
-ruby_block 'ensure that master.cf has the configuration' do # ~FC014
-  block do
-    master = Chef::Util::FileEdit.new('/etc/postfix/master.cf')
-    master.insert_line_if_no_match(/zeyple/, <<-CONF.gsub(/^[ ]{2}/, ''))
+execute 'ensure that master.cf has the configuration' do
+  user 'root'
+  group 'root'
+  not_if "grep -E '^zeyple' /etc/postfix/master.cf"
+  command <<~CONF
+    cat <<EOH >> /etc/postfix/master.cf
+    zeyple    unix  -       n       n       -       -       pipe
+      user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} \${recipient}
 
-  zeyple    unix  -       n       n       -       -       pipe
-    user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} \${recipient}
-
-  #{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
-    -o content_filter=
-    -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
-    -o smtpd_helo_restrictions=
-    -o smtpd_client_restrictions=
-    -o smtpd_sender_restrictions=
-    -o smtpd_recipient_restrictions=permit_mynetworks,reject
-    -o mynetworks=127.0.0.0/8,[::1]/128
-    -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
+    #{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
+      -o content_filter=
+      -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
+      -o smtpd_helo_restrictions=
+      -o smtpd_client_restrictions=
+      -o smtpd_sender_restrictions=
+      -o smtpd_recipient_restrictions=permit_mynetworks,reject
+      -o mynetworks=127.0.0.0/8,[::1]/128
+      -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
+    EOH
     CONF
-
-    master.write_file
-  end
 end
 
-ruby_block 'ensure that zeyple is enabled and reload postfix if needed' do
-  block do
-    line = 'content_filter = zeyple'
+content_filter = 'content_filter = zeyple'
 
-    main = Chef::Util::FileEdit.new('/etc/postfix/main.cf')
-    main.insert_line_if_no_match(/\A#{line}/, "\n#{line}")
-    main.write_file
+execute 'ensure that zeyple is enabled and reload postfix if needed' do
+  user 'root'
+  group 'root'
+  not_if "grep -E '^#{content_filter}' /etc/postfix/main.cf"
+  command "echo '#{content_filter}' >> /etc/postfix/main.cf"
+  notifies :reload, 'service[postfix]'
+end
 
-    # TODO: is it worth depending on postfix cookbook and use `notifies :reload, 'service[postfix]'`?
-    Mixlib::ShellOut.new('postfix reload').run_command if main.file_edited?
-  end
+service 'postfix' do
+  action :nothing
 end
