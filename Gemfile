@@ -1,10 +1,17 @@
 source 'https://rubygems.org'
 
-group :lint do
-  gem 'foodcritic'
-  gem 'rubocop'
+group :development do
+  gem 'berkshelf'
+  gem 'rake'
 end
 
-group :development do
-  gem 'rake'
+group :lint do
+  gem 'cookstyle'
+  gem 'foodcritic'
+end
+
+group :test do
+  gem 'kitchen-inspec'
+  gem 'kitchen-vagrant'
+  gem 'test-kitchen'
 end

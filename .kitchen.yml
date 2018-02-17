@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  deprecations_as_errors: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: debian/stretch64
+  - name: centos/7
+  - name: ubuntu/xenial64
+
+suites:
+  - name: default
+    run_list:
+      - recipe[postfix::server]
+      - recipe[zeyple::default]
+    attributes:
+      zeyple:
+        gpg:
+          keys: ["0xEEC73D5809A98A9B"]
