@@ -20,6 +20,7 @@ suites:
     run_list:
       - recipe[postfix::server]
       - recipe[zeyple::default]
+      - recipe[zeyple_test::default]
     attributes:
       zeyple:
         gpg:

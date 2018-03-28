@@ -53,9 +53,9 @@ execute 'ensure that master.cf has the configuration' do
   group 'root'
   not_if "grep -E '^zeyple' /etc/postfix/master.cf"
   command <<~CONF
-    cat <<EOH >> /etc/postfix/master.cf
+    cat <<'EOH' >> /etc/postfix/master.cf
     zeyple    unix  -       n       n       -       -       pipe
-      user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} \${recipient}
+      user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} ${recipient}
 
     #{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
       -o content_filter=

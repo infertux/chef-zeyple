@@ -35,3 +35,15 @@ control 'zeyple-1' do
     its('processes') { should eq %w(master) }
   end
 end
+
+control 'zeyple-2' do
+  title 'Zeyple is working properly'
+  desc 'Send test email then assert it was processed properly'
+  impact 1.0
+
+  describe file('/var/log/zeyple.log') do
+    its('content') { should match(/INFO Recipient: root@[^\.]+\.vagrantup\.com/) }
+    its('content') { should match(/INFO Key ID: None/) }
+    its('content') { should match(/INFO Message <[^>]+> sent/) }
+  end
+end
