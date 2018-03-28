@@ -13,7 +13,7 @@ verifier:
 platforms:
   - name: debian/stretch64
   - name: centos/7
-  - name: ubuntu/xenial64
+  - name: bento/ubuntu-16.04
 
 suites:
   - name: default

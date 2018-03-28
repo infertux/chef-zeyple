@@ -1,6 +1,6 @@
 package_names = {
   'debian' => %w(mailutils),
-  'centos' => %w(mailx),
+  'rhel' => %w(mailx),
 }
 
 package package_names.fetch(node['platform_family'])

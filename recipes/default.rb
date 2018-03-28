@@ -29,11 +29,11 @@ node['zeyple']['gpg']['keys'].each do |key|
 end
 
 remote_file node['zeyple']['script'] do
-  source node['zeyple']['upstream']['url']
+  source node['zeyple']['upstream']['script']['url']
   owner node['zeyple']['user']
   group node['zeyple']['user']
   mode '0700'
-  checksum node['zeyple']['upstream']['checksum']
+  checksum node['zeyple']['upstream']['script']['checksum']
 end
 
 template node['zeyple']['config_file'] do
@@ -80,6 +80,8 @@ execute 'ensure that zeyple is enabled and reload postfix if needed' do
   notifies :reload, 'service[postfix]'
 end
 
-service 'postfix' do
+service 'postfix' do # defined so we can use `notifies :reload` above
   action :nothing
 end
+
+include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')
