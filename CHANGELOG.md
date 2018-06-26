@@ -1,6 +1,9 @@
 Zeyple CHANGELOG
 ================
 
+## v1.2.2
+- Update cookbook for Zeyple 1.2.2
+
 ## v1.2.1
 - Update cookbook for Zeyple 1.2.1
 
