@@ -13,4 +13,4 @@ supports 'debian'
 supports 'centos'
 supports 'ubuntu'
 
-depends 'postfix', '>= 5.2'
+depends 'postfix', '>= 5.3'
