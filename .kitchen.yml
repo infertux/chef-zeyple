@@ -6,6 +6,8 @@ provisioner:
   name: chef_zero
   product_name: chef
   deprecations_as_errors: true
+  enforce_idempotency: false # TODO: improve cookbook to enforce idempotency
+  multiple_converge: 2
 
 verifier:
   name: inspec
