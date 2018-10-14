@@ -1,6 +1,7 @@
 ---
 driver:
   name: vagrant
+  provider: libvirt
 
 provisioner:
   name: chef_zero
@@ -15,7 +16,7 @@ verifier:
 platforms:
   - name: debian/stretch64
   - name: centos/7
-  - name: ubuntu/bionic64
+  - name: generic/ubuntu1804
 
 suites:
   - name: default
