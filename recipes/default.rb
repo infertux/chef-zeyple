@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: zeyple
+# Cookbook:: zeyple
 # Recipe:: default
 #
 
