@@ -11,8 +11,7 @@ default['zeyple']['gpg']['keys'] = %w()
 
 default['zeyple']['dependencies'] = %w(gnupg sudo)
 default['zeyple']['dependencies'] |= \
-  case node['platform_family']
-  when 'rhel'
+  if platform_family?('rhel')
     %w(pygpgme)
   else
     %w(python-gpgme dirmngr)
@@ -22,7 +21,7 @@ default['zeyple']['user'] = 'zeyple'
 default['zeyple']['config_file'] = '/etc/zeyple.conf'
 default['zeyple']['data_dir'] = '/var/lib/zeyple'
 default['zeyple']['log_file'] = '/var/log/zeyple.log'
-default['zeyple']['relay']['host'] = `wc -l < /proc/net/if_inet6`.chomp == '0' ? '127.0.0.1' : 'localhost' # ~FC048
+default['zeyple']['relay']['host'] = `wc -l < /proc/net/if_inet6`.chomp == '0' ? '127.0.0.1' : 'localhost'
 default['zeyple']['relay']['port'] = '10026'
 default['zeyple']['gpg']['server'] = 'hkp://keys.gnupg.net'
 default['zeyple']['script'] = '/usr/sbin/zeyple'

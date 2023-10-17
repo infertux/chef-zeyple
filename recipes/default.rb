@@ -48,40 +48,41 @@ file node['zeyple']['log_file'] do
   mode '0600'
 end
 
-execute 'ensure that master.cf has the configuration' do
-  user 'root'
-  group 'root'
-  not_if "grep -E '^zeyple' /etc/postfix/master.cf"
-  command <<~CONF
-    cat <<'EOH' >> /etc/postfix/master.cf
-    zeyple    unix  -       n       n       -       -       pipe
-      user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} ${recipient}
+include_recipe 'postfix::default'
 
-    #{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']} inet  n       -       n       -       10      smtpd
-      -o content_filter=
-      -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
-      -o smtpd_helo_restrictions=
-      -o smtpd_client_restrictions=
-      -o smtpd_sender_restrictions=
-      -o smtpd_recipient_restrictions=permit_mynetworks,reject
-      -o mynetworks=127.0.0.0/8,[::1]/128
-      -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
-    EOH
-    CONF
-end
+node.default['postfix']['master']['zeyple'] = {
+  # zeyple    unix  -       n       n       -       -       pipe
+  active: true,
+  order: 600,
+  type: 'unix',
+  unpriv: false,
+  chroot: false,
+  command: 'pipe',
+  args: ["user=#{node['zeyple']['user']} argv=#{node['zeyple']['script']} ${recipient}"],
+}
 
-content_filter = 'content_filter = zeyple'
+node.default['postfix']['master']["#{node['zeyple']['relay']['host']}:#{node['zeyple']['relay']['port']}"] = {
+  # inet  n       -       n       -       10      smtpd
+  active: true,
+  order: 600,
+  type: 'inet',
+  private: false,
+  chroot: false,
+  maxproc: '10',
+  command: 'smtpd',
+  args: [<<~ARGS,
+    -o content_filter=
+    -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
+    -o smtpd_helo_restrictions=
+    -o smtpd_client_restrictions=
+    -o smtpd_sender_restrictions=
+    -o smtpd_recipient_restrictions=permit_mynetworks,reject
+    -o mynetworks=127.0.0.0/8,[::1]/128
+    -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
+  ARGS
+  ],
+}
 
-execute 'ensure that zeyple is enabled and reload postfix if needed' do
-  user 'root'
-  group 'root'
-  not_if "grep -E '^#{content_filter}' /etc/postfix/main.cf"
-  command "echo '#{content_filter}' >> /etc/postfix/main.cf"
-  notifies :reload, 'service[postfix]'
-end
-
-service 'postfix' do # defined so we can use `notifies :reload` above
-  action :nothing
-end
+node.default['postfix']['main']['content_filter'] = 'zeyple'
 
 include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')
