@@ -6,7 +6,7 @@ DEPENDENCIES
     path: test/fixtures/cookbooks/zeyple_test
 
 GRAPH
-  postfix (6.0.26)
+  postfix (6.0.27)
   zeyple (2.0.0)
     postfix (~> 6.0)
   zeyple_test (1.0.0)
