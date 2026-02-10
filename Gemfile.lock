@@ -1,266 +1,42 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.5.1)
+    activesupport (7.2.3)
       base64
       benchmark (>= 0.3)
       bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
+      concurrent-ruby (~> 1.0, >= 1.3.1)
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
       logger (>= 1.4.2)
       minitest (>= 5.1)
-      mutex_m
       securerandom (>= 0.3)
-      tzinfo (~> 2.0)
-    addressable (2.8.7)
-      public_suffix (>= 2.0.2, < 7.0)
-    ast (2.4.2)
-    aws-eventstream (1.3.2)
-    aws-partitions (1.863.0)
-    aws-sdk-accessanalyzer (1.44.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-account (1.20.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-alexaforbusiness (1.67.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-amplify (1.54.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-apigateway (1.90.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-apigatewayv2 (1.53.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-applicationautoscaling (1.79.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-athena (1.79.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-autoscaling (1.102.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-batch (1.79.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-budgets (1.62.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudformation (1.97.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudfront (1.86.1)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudhsm (1.50.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudhsmv2 (1.53.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudtrail (1.74.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudwatch (1.83.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudwatchevents (1.69.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cloudwatchlogs (1.77.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-codecommit (1.62.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-codedeploy (1.62.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-codepipeline (1.67.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cognitoidentity (1.51.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-cognitoidentityprovider (1.85.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-configservice (1.103.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.190.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+    addressable (2.8.8)
+      public_suffix (>= 2.0.2, < 8.0)
+    ast (2.4.3)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1213.0)
+    aws-sdk-core (3.242.0)
       aws-eventstream (~> 1, >= 1.3.0)
-      aws-partitions (~> 1, >= 1.651.0)
-      aws-sigv4 (~> 1.8)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      bigdecimal
       jmespath (~> 1, >= 1.6.1)
-    aws-sdk-costandusagereportservice (1.53.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-databasemigrationservice (1.91.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-dynamodb (1.98.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ec2 (1.429.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ecr (1.68.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ecrpublic (1.25.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ecs (1.135.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-efs (1.71.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-eks (1.95.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-elasticache (1.95.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-elasticbeanstalk (1.63.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-elasticloadbalancing (1.51.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-elasticloadbalancingv2 (1.96.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-elasticsearchservice (1.79.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-emr (1.81.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-eventbridge (1.54.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-firehose (1.60.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-glue (1.165.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-guardduty (1.85.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-iam (1.92.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-kafka (1.67.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-kinesis (1.54.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-kms (1.76.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-lambda (1.113.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-macie2 (1.64.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-mq (1.58.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-networkfirewall (1.39.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-networkmanager (1.40.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-organizations (1.83.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ram (1.52.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-rds (1.208.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-redshift (1.107.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-route53 (1.83.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-route53domains (1.54.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-route53resolver (1.51.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.141.0)
-      aws-sdk-core (~> 3, >= 3.189.0)
+      logger
+    aws-sdk-kms (1.121.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3 (1.213.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
       aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.8)
-    aws-sdk-s3control (1.74.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-secretsmanager (1.87.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-securityhub (1.98.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-servicecatalog (1.90.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ses (1.58.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-shield (1.60.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-signer (1.50.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-simpledb (1.42.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv2 (~> 1.0)
-    aws-sdk-sms (1.52.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-sns (1.70.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-sqs (1.69.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ssm (1.162.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-states (1.63.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-synthetics (1.39.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-transfer (1.86.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-waf (1.58.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-wafv2 (1.74.0)
-      aws-sdk-core (~> 3, >= 3.188.0)
-      aws-sigv4 (~> 1.1)
-    aws-sigv2 (1.2.0)
-    aws-sigv4 (1.11.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-secretsmanager (1.128.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
     azure_graph_rbac (0.17.2)
       ms_rest_azure (~> 0.12.0)
@@ -272,41 +48,42 @@ GEM
       ms_rest_azure (~> 0.12.0)
     azure_mgmt_storage (0.23.0)
       ms_rest_azure (~> 0.12.0)
-    base64 (0.2.0)
-    bcrypt_pbkdf (1.1.1)
-    benchmark (0.4.0)
-    berkshelf (8.0.9)
-      chef (>= 15.7.32)
+    base64 (0.3.0)
+    bcrypt_pbkdf (1.1.2)
+    benchmark (0.5.0)
+    berkshelf (8.1.6)
+      chef (>= 18.0.0)
+      chef-cleanroom (~> 1.0)
       chef-config
-      cleanroom (~> 1.0)
       concurrent-ruby (~> 1.0)
-      minitar (>= 0.6)
+      ffi (>= 1.15.5, <= 1.16.3)
+      minitar (~> 1.0)
       mixlib-archive (>= 1.1.4, < 2.0)
       mixlib-config (>= 2.2.5)
       mixlib-shellout (>= 2.0, < 4.0)
-      octokit (~> 4.0)
+      octokit (>= 4.0, < 6.0)
       retryable (>= 2.0, < 4.0)
       solve (~> 4.0)
-      thor (>= 0.20)
-    bigdecimal (3.1.9)
-    bson (4.15.0)
+      syslog (~> 0.3)
+      thor (~> 1.4)
+    bigdecimal (4.0.1)
     builder (3.3.0)
-    chef (18.6.2)
+    chef (18.3.0)
       addressable
       aws-sdk-s3 (~> 1.91)
       aws-sdk-secretsmanager (~> 1.46)
-      chef-config (= 18.6.2)
-      chef-utils (= 18.6.2)
+      chef-config (= 18.3.0)
+      chef-utils (= 18.3.0)
       chef-vault
       chef-zero (>= 14.0.11)
       corefoundation (~> 0.3.4)
       diff-lcs (>= 1.2.4, < 1.6.0, != 1.4.0)
       erubis (~> 2.7)
-      ffi (>= 1.15.5, <= 1.16.3)
+      ffi (>= 1.15.5)
       ffi-libarchive (~> 1.0, >= 1.0.3)
       ffi-yajl (~> 2.2)
       iniparse (~> 1.4)
-      inspec-core (>= 5, < 6)
+      inspec-core (>= 5)
       license-acceptance (>= 1.0.5, < 3)
       mixlib-archive (>= 0.4, < 2.0)
       mixlib-authentication (>= 2.1, < 4)
@@ -319,52 +96,81 @@ GEM
       plist (~> 3.2)
       proxifier2 (~> 1.1)
       syslog-logger (~> 1.6)
-      train-core (~> 3.10, <= 3.12.7)
+      train-core (~> 3.10)
       train-rest (>= 0.4.1)
       train-winrm (>= 0.2.5)
-      unf_ext (~> 0.0.8.2)
+      unf_ext (>= 0.0.8.2)
       uuidtools (>= 2.1.5, < 3.0)
-      vault (~> 0.18.2)
-    chef-config (18.6.2)
+      vault (~> 0.16)
+    chef-cleanroom (1.0.5)
+    chef-config (18.3.0)
       addressable
-      chef-utils (= 18.6.2)
+      chef-utils (= 18.3.0)
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
       mixlib-shellout (>= 2.0, < 4.0)
       tomlrb (~> 1.2)
+    chef-gyoku (1.5.0)
+      builder (>= 2.1.2)
+      rexml (~> 3.4)
     chef-telemetry (1.1.1)
       chef-config
       concurrent-ruby (~> 1.0)
-    chef-utils (18.6.2)
+    chef-utils (18.3.0)
       concurrent-ruby
-    chef-vault (4.1.11)
-    chef-zero (15.0.11)
-      ffi-yajl (~> 2.2)
-      hashie (>= 2.0, < 5.0)
+    chef-vault (4.2.5)
+      syslog (~> 0.3)
+    chef-winrm (2.5.0)
+      builder (>= 2.1.2)
+      chef-gyoku (~> 1.5)
+      erubi (~> 1.8)
+      gssapi (~> 1.2)
+      httpclient (~> 2.2, >= 2.2.0.2)
+      logging (>= 1.6.1, < 3.0)
+      nori (~> 2.7)
+      rexml (>= 3.4.2, < 4.0)
+      rubyntlm (~> 0.6.0, >= 0.6.3)
+    chef-winrm-elevated (1.2.5)
+      chef-winrm (>= 2.3.11)
+      chef-winrm-fs (>= 1.3.7)
+      erubi (~> 1.8)
+    chef-winrm-fs (1.4.2)
+      benchmark (~> 0.5.0)
+      chef-winrm (~> 2.4)
+      csv (~> 3.3)
+      erubi (>= 1.7)
+      logging (>= 1.6.1, < 3.0)
+      rubyzip (~> 2.0)
+    chef-zero (15.1.0)
+      ffi-yajl (>= 2.2, < 4.0)
+      hashie (>= 2.0, < 6.0)
       mixlib-log (>= 2.0, < 4.0)
-      rack (~> 2.0, >= 2.0.6)
+      rack (~> 3.1, >= 3.1.16)
+      rackup (~> 2.2, >= 2.2.1)
+      unf_ext (~> 0.0.8)
       uuidtools (~> 2.1)
       webrick
-    cleanroom (1.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.3.5)
-    connection_pool (2.5.0)
-    cookstyle (7.32.8)
-      rubocop (= 1.25.1)
+    concurrent-ruby (1.3.6)
+    connection_pool (3.0.2)
+    cookstyle (8.5.3)
+      rubocop (= 1.81.7)
     corefoundation (0.3.13)
       ffi (>= 1.15.0)
-    date (3.4.1)
+    csv (3.3.5)
+    date (3.5.1)
     declarative (0.0.20)
     diff-lcs (1.5.1)
     docker-api (2.4.0)
       excon (>= 0.64.0)
       multi_json
     domain_name (0.6.20240107)
-    drb (2.2.1)
-    ed25519 (1.3.0)
+    drb (2.2.3)
+    ed25519 (1.4.0)
+    erb (6.0.1)
     erubi (1.13.1)
     erubis (2.7.0)
-    excon (1.2.5)
+    excon (1.3.2)
       logger
     faraday (1.10.4)
       faraday-em_http (~> 1.0)
@@ -378,29 +184,28 @@ GEM
       faraday-rack (~> 1.0)
       faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-cookie_jar (0.0.7)
+    faraday-cookie_jar (0.0.8)
       faraday (>= 0.8.0)
-      http-cookie (~> 1.0.0)
+      http-cookie (>= 1.0.0)
     faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
+    faraday-em_synchrony (1.0.1)
     faraday-excon (1.1.0)
-    faraday-follow_redirects (0.3.0)
+    faraday-follow_redirects (0.5.0)
       faraday (>= 1, < 3)
     faraday-httpclient (1.0.1)
-    faraday-multipart (1.1.0)
+    faraday-multipart (1.2.0)
       multipart-post (~> 2.0)
     faraday-net_http (1.0.2)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
-    faraday_middleware (1.0.0)
-      faraday (~> 1.0)
     ffi (1.16.3)
     ffi-libarchive (1.1.14)
       ffi (~> 1.0)
-    ffi-yajl (2.6.0)
-      libyajl2 (>= 1.2)
+    ffi-yajl (2.7.7)
+      libyajl2 (>= 2.1)
+      yajl
     fuzzyurl (0.9.0)
     google-apis-admin_directory_v1 (0.46.0)
       google-apis-core (>= 0.11.0, < 2.a)
@@ -432,33 +237,17 @@ GEM
       signet (>= 0.16, < 2.a)
     gssapi (1.3.1)
       ffi (>= 1.0.1)
-    gyoku (1.4.0)
-      builder (>= 2.1.2)
-      rexml (~> 3.0)
     hashie (4.1.0)
-    highline (3.1.2)
-      reline
     http-accept (1.7.0)
-    http-cookie (1.0.8)
+    http-cookie (1.1.0)
       domain_name (~> 0.5)
     httpclient (2.9.0)
       mutex_m
-    i18n (1.14.7)
+    i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     inifile (3.0.0)
     iniparse (1.5.0)
-    inspec (5.21.29)
-      cookstyle
-      faraday_middleware (>= 0.12.2, < 1.1)
-      inspec-core (= 5.21.29)
-      mongo (= 2.13.2)
-      progress_bar (~> 1.3.3)
-      rake
-      train (~> 3.10)
-      train-aws (~> 0.2)
-      train-habitat (~> 0.1)
-      train-winrm (~> 0.2)
-    inspec-core (5.21.29)
+    inspec-core (5.22.3)
       addressable (~> 2.4)
       chef-telemetry (~> 1.0, >= 1.0.8)
       faraday (>= 1, < 3)
@@ -481,58 +270,71 @@ GEM
       train-core (~> 3.10)
       tty-prompt (~> 0.17)
       tty-table (~> 0.10)
-    io-console (0.8.0)
+    io-console (0.8.2)
     ipaddress (0.8.3)
+    irb (1.17.0)
+      pp (>= 0.6.0)
+      prism (>= 1.3.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     jmespath (1.6.2)
-    json (2.10.2)
-    jwt (2.10.1)
+    json (2.18.1)
+    jwt (2.10.2)
       base64
-    kitchen-dokken (2.20.7)
+    kitchen-dokken (2.22.1)
       docker-api (>= 1.33, < 3)
+      kitchen-omnibus-chef (>= 1.0)
       lockfile (~> 2.1)
-      test-kitchen (>= 1.15, < 4)
-    kitchen-inspec (2.6.2)
-      hashie (>= 3.4, <= 5.0)
-      inspec (>= 2.2.64, < 6.0)
-      test-kitchen (>= 2.7, < 4)
+      test-kitchen (>= 1.15, < 5)
+    kitchen-inspec (3.1.0)
+      hashie (>= 3.4, < 6.0)
+      inspec-core (>= 2.2.64, < 8.0)
+      test-kitchen (>= 2.7, < 5)
+      train
+    kitchen-omnibus-chef (1.1.0)
+      license-acceptance (>= 1.0.11, < 3.0)
+      mixlib-install (>= 3.14)
+      mixlib-shellout (>= 1.2, < 4.0)
+      test-kitchen (>= 4.0)
+    language_server-protocol (3.17.0.5)
     libyajl2 (2.1.0)
     license-acceptance (2.1.13)
       pastel (~> 0.7)
       tomlrb (>= 1.2, < 3.0)
       tty-box (~> 0.6)
       tty-prompt (~> 0.20)
+    lint_roller (1.1.0)
     little-plugger (1.1.4)
     lockfile (2.1.3)
-    logger (1.6.6)
+    logger (1.7.0)
     logging (2.4.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.14)
     method_source (1.1.0)
-    mime-types (3.6.0)
+    mime-types (3.7.0)
       logger
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0304)
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2026.0203)
     mini_mime (1.1.5)
-    minitar (1.0.2)
-    minitest (5.25.5)
-    mixlib-archive (1.1.7)
+    minitar (1.1.0)
+    minitest (6.0.1)
+      prism (~> 1.5)
+    mixlib-archive (1.3.3)
       mixlib-log
     mixlib-authentication (3.0.10)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
-    mixlib-install (3.12.30)
+    mixlib-install (3.15.0)
       mixlib-shellout
       mixlib-versioning
       thor
-    mixlib-log (3.2.0)
-      ffi (~> 1.9, <= 1.17.0)
-    mixlib-shellout (3.3.8)
+    mixlib-log (3.2.3)
+      ffi (>= 1.15.5)
+    mixlib-shellout (3.4.10)
       chef-utils
     mixlib-versioning (1.2.12)
     molinillo (0.8.0)
-    mongo (2.13.2)
-      bson (>= 4.8.2, < 5.0.0)
     ms_rest (0.7.6)
       concurrent-ruby (~> 1.0)
       faraday (>= 0.9, < 2.0.0)
@@ -542,10 +344,10 @@ GEM
       faraday (>= 0.9, < 2.0.0)
       faraday-cookie_jar (~> 0.0.6)
       ms_rest (~> 0.7.6)
-    multi_json (1.15.0)
+    multi_json (1.19.1)
     multipart-post (2.4.1)
     mutex_m (0.3.0)
-    net-ftp (0.3.8)
+    net-ftp (0.3.9)
       net-protocol
       time
     net-protocol (0.2.2)
@@ -560,13 +362,13 @@ GEM
     netrc (0.11.0)
     nori (2.7.1)
       bigdecimal
-    octokit (4.25.1)
+    octokit (5.6.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
-    ohai (18.1.18)
+    ohai (18.2.8)
       chef-config (>= 14.12, < 19)
       chef-utils (>= 16.0, < 19)
-      ffi (~> 1.9)
+      ffi (~> 1.9, <= 1.17.0)
       ffi-yajl (~> 2.2)
       ipaddress
       mixlib-cli (>= 1.7.0)
@@ -576,30 +378,41 @@ GEM
       plist (~> 3.1)
       train-core
       wmi-lite (~> 1.0)
-    options (2.3.2)
     os (1.1.4)
-    parallel (1.26.3)
-    parser (3.3.7.1)
+    ostruct (0.6.3)
+    parallel (1.27.0)
+    parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
     parslet (1.8.2)
     pastel (0.8.0)
       tty-color (~> 0.5)
     plist (3.7.2)
-    progress_bar (1.3.4)
-      highline (>= 1.6)
-      options (~> 2.3.0)
+    pp (0.6.3)
+      prettyprint
+    prettyprint (0.2.0)
+    prism (1.9.0)
     proxifier2 (1.1.0)
-    pry (0.15.2)
+    pry (0.16.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (6.0.1)
+      reline (>= 0.6.0)
+    psych (5.3.1)
+      date
+      stringio
+    public_suffix (7.0.2)
     racc (1.8.1)
-    rack (2.2.20)
+    rack (3.2.4)
+    rackup (2.3.1)
+      rack (>= 3)
     rainbow (3.1.1)
-    rake (13.2.1)
-    regexp_parser (2.10.0)
-    reline (0.6.0)
+    rake (13.3.1)
+    rdoc (7.2.0)
+      erb
+      psych (>= 4.0.0)
+      tsort
+    regexp_parser (2.11.3)
+    reline (0.6.3)
       io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
@@ -612,7 +425,7 @@ GEM
       netrc (~> 0.8)
     retriable (3.1.2)
     retryable (3.0.5)
-    rexml (3.4.2)
+    rexml (3.4.4)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -629,65 +442,75 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.1)
-    rubocop (1.25.1)
+    rubocop (1.81.7)
+      json (~> 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
       parallel (~> 1.10)
-      parser (>= 3.1.0.0)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.15.1, < 2.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.47.1, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.38.1)
-      parser (>= 3.3.1.0)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.49.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyntlm (0.6.5)
       base64
     rubyzip (2.4.1)
-    sawyer (0.9.2)
+    sawyer (0.9.3)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
     securerandom (0.4.1)
     semverse (3.0.2)
-    signet (0.19.0)
+    signet (0.21.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
-      jwt (>= 1.5, < 3.0)
+      jwt (>= 1.5, < 4.0)
       multi_json (~> 1.10)
+    socksify (1.8.1)
     solve (4.0.4)
       molinillo (~> 0.6)
       semverse (>= 1.1, < 4.0)
     sslshake (1.3.1)
+    stringio (3.2.0)
     strings (0.2.1)
       strings-ansi (~> 0.2)
       unicode-display_width (>= 1.5, < 3.0)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
+    syslog (0.4.0)
+      logger
     syslog-logger (1.6.8)
-    test-kitchen (3.7.0)
+    test-kitchen (4.0.0)
       bcrypt_pbkdf (~> 1.0)
       chef-utils (>= 16.4.35)
-      ed25519 (~> 1.2)
-      license-acceptance (>= 1.0.11, < 3.0)
+      chef-winrm (>= 2.5.0, < 3.0)
+      chef-winrm-elevated (>= 1.0, < 2.0)
+      chef-winrm-fs (>= 1.0, < 2.0)
+      csv (~> 3.3)
+      ed25519 (~> 1.3)
+      irb (~> 1.15)
       mixlib-install (~> 3.6)
       mixlib-shellout (>= 1.2, < 4.0)
       net-scp (>= 1.1, < 5.0)
       net-ssh (>= 2.9, < 8.0)
       net-ssh-gateway (>= 1.2, < 3.0)
+      ostruct (~> 0.6)
+      syslog (~> 0.3)
       thor (>= 0.19, < 2.0)
-      winrm (~> 2.0)
-      winrm-elevated (~> 1.0)
-      winrm-fs (~> 1.1)
-    thor (1.3.2)
-    time (0.4.1)
+    thor (1.5.0)
+    time (0.4.2)
       date
     timeliness (0.3.10)
-    timeout (0.4.3)
+    timeout (0.6.0)
     tomlrb (1.3.0)
     trailblazer-option (0.1.2)
-    train (3.12.7)
-      activesupport (>= 6.0.3.1, < 7.2.0)
+    train (3.16.1)
+      activesupport (~> 7.2, >= 7.2.2.1)
       azure_graph_rbac (~> 0.16)
       azure_mgmt_key_vault (~> 0.17)
       azure_mgmt_resources (~> 0.15)
@@ -703,105 +526,26 @@ GEM
       google-apis-storage_v1 (~> 0.30.0)
       googleauth (>= 0.16.2, < 1.9.0)
       inifile (~> 3.0)
-      train-core (= 3.12.7)
-      train-winrm (~> 0.2)
-    train-aws (0.2.41)
-      aws-partitions (~> 1.863.0)
-      aws-sdk-accessanalyzer (~> 1.44.0)
-      aws-sdk-account (~> 1.20.0)
-      aws-sdk-alexaforbusiness (~> 1.67.0)
-      aws-sdk-amplify (~> 1.54.0)
-      aws-sdk-apigateway (~> 1.90.0)
-      aws-sdk-apigatewayv2 (~> 1.53.0)
-      aws-sdk-applicationautoscaling (~> 1.79.0)
-      aws-sdk-athena (>= 1.78, < 1.80)
-      aws-sdk-autoscaling (= 1.102.0)
-      aws-sdk-batch (~> 1.79.0)
-      aws-sdk-budgets (~> 1.62.0)
-      aws-sdk-cloudformation (>= 1.96, < 1.98)
-      aws-sdk-cloudfront (~> 1.86.0)
-      aws-sdk-cloudhsm (~> 1.50.0)
-      aws-sdk-cloudhsmv2 (~> 1.53.0)
-      aws-sdk-cloudtrail (~> 1.74.0)
-      aws-sdk-cloudwatch (~> 1.83.0)
-      aws-sdk-cloudwatchevents (~> 1.69.0)
-      aws-sdk-cloudwatchlogs (~> 1.75)
-      aws-sdk-codecommit (~> 1.62.0)
-      aws-sdk-codedeploy (~> 1.62.0)
-      aws-sdk-codepipeline (~> 1.67.0)
-      aws-sdk-cognitoidentity (~> 1.51.0)
-      aws-sdk-cognitoidentityprovider (~> 1.84)
-      aws-sdk-configservice (~> 1.103.0)
-      aws-sdk-core (~> 3.190.0)
-      aws-sdk-costandusagereportservice (~> 1.53.0)
-      aws-sdk-databasemigrationservice (~> 1.91.0)
-      aws-sdk-dynamodb (~> 1.98.0)
-      aws-sdk-ec2 (>= 1.427, < 1.430)
-      aws-sdk-ecr (~> 1.68.0)
-      aws-sdk-ecrpublic (~> 1.25.0)
-      aws-sdk-ecs (~> 1.135.0)
-      aws-sdk-efs (~> 1.71.0)
-      aws-sdk-eks (~> 1.95.0)
-      aws-sdk-elasticache (~> 1.95.0)
-      aws-sdk-elasticbeanstalk (~> 1.63.0)
-      aws-sdk-elasticloadbalancing (~> 1.51.0)
-      aws-sdk-elasticloadbalancingv2 (~> 1.96.0)
-      aws-sdk-elasticsearchservice (~> 1.79.0)
-      aws-sdk-emr (~> 1.81.0)
-      aws-sdk-eventbridge (~> 1.54.0)
-      aws-sdk-firehose (~> 1.60.0)
-      aws-sdk-glue (~> 1.164)
-      aws-sdk-guardduty (~> 1.85.0)
-      aws-sdk-iam (~> 1.92.0)
-      aws-sdk-kafka (~> 1.67.0)
-      aws-sdk-kinesis (~> 1.54.0)
-      aws-sdk-kms (~> 1.74)
-      aws-sdk-lambda (~> 1.113.0)
-      aws-sdk-macie2 (~> 1.64.0)
-      aws-sdk-mq (~> 1.58.0)
-      aws-sdk-networkfirewall (~> 1.39.0)
-      aws-sdk-networkmanager (~> 1.40.0)
-      aws-sdk-organizations (~> 1.83.0)
-      aws-sdk-ram (~> 1.52.0)
-      aws-sdk-rds (~> 1.208.0)
-      aws-sdk-redshift (~> 1.107.0)
-      aws-sdk-route53 (~> 1.83.0)
-      aws-sdk-route53domains (~> 1.54.0)
-      aws-sdk-route53resolver (~> 1.51.0)
-      aws-sdk-s3 (~> 1.141.0)
-      aws-sdk-s3control (~> 1.74.0)
-      aws-sdk-secretsmanager (~> 1.87.0)
-      aws-sdk-securityhub (~> 1.98.0)
-      aws-sdk-servicecatalog (~> 1.90.0)
-      aws-sdk-ses (~> 1.58.0)
-      aws-sdk-shield (~> 1.60.0)
-      aws-sdk-signer (~> 1.50.0)
-      aws-sdk-simpledb (~> 1.42.0)
-      aws-sdk-sms (~> 1.52.0)
-      aws-sdk-sns (~> 1.70.0)
-      aws-sdk-sqs (~> 1.69.0)
-      aws-sdk-ssm (~> 1.162.0)
-      aws-sdk-states (~> 1.63.0)
-      aws-sdk-synthetics (~> 1.39.0)
-      aws-sdk-transfer (~> 1.86.0)
-      aws-sdk-waf (~> 1.58.0)
-      aws-sdk-wafv2 (~> 1.74.0)
-    train-core (3.12.7)
+      ostruct (~> 0.6.0)
+      train-core (= 3.16.1)
+      train-winrm (~> 0.4.0)
+    train-core (3.16.1)
       addressable (~> 2.5)
-      ffi (!= 1.13.0)
+      ffi (>= 1.16.0, < 1.18)
       json (>= 1.8, < 3.0)
       mixlib-shellout (>= 2.0, < 4.0)
       net-scp (>= 1.2, < 5.0)
       net-ssh (>= 2.9, < 8.0)
-    train-habitat (0.2.22)
     train-rest (0.5.0)
       aws-sigv4 (~> 1.5)
       rest-client (~> 2.1)
       train-core (~> 3.0)
-    train-winrm (0.2.13)
-      winrm (>= 2.3.6, < 3.0)
-      winrm-elevated (~> 1.2.2)
-      winrm-fs (~> 1.0)
+    train-winrm (0.4.3)
+      chef-winrm (>= 2.4.4, < 3.0)
+      chef-winrm-elevated (>= 1.2.5, < 2.0)
+      chef-winrm-fs (>= 1.4.1, < 2.0)
+      socksify (~> 1.8)
+    tsort (0.2.0)
     tty-box (0.7.0)
       pastel (~> 0.8)
       strings (~> 0.2.0)
@@ -823,36 +567,19 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    unf_ext (0.0.8.2)
+    unf_ext (0.0.9.1)
     unicode-display_width (2.6.0)
     unicode_utils (1.4.0)
     uuidtools (2.2.0)
     vault (0.18.2)
       aws-sigv4
-    webrick (1.9.1)
-    winrm (2.3.9)
-      builder (>= 2.1.2)
-      erubi (~> 1.8)
-      gssapi (~> 1.2)
-      gyoku (~> 1.0)
-      httpclient (~> 2.2, >= 2.2.0.2)
-      logging (>= 1.6.1, < 3.0)
-      nori (~> 2.0, >= 2.7.1)
-      rexml (~> 3.0)
-      rubyntlm (~> 0.6.0, >= 0.6.3)
-    winrm-elevated (1.2.3)
-      erubi (~> 1.8)
-      winrm (~> 2.0)
-      winrm-fs (~> 1.0)
-    winrm-fs (1.3.5)
-      erubi (~> 1.8)
-      logging (>= 1.6.1, < 3.0)
-      rubyzip (~> 2.0)
-      winrm (~> 2.0)
+    webrick (1.9.2)
     wisper (2.0.1)
     wmi-lite (1.0.7)
+    yajl (0.3.4)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -863,5 +590,219 @@ DEPENDENCIES
   rake
   test-kitchen
 
+CHECKSUMS
+  activesupport (7.2.3) sha256=5675c9770dac93e371412684249f9dc3c8cec104efd0624362a520ae685c7b10
+  addressable (2.8.8) sha256=7c13b8f9536cf6364c03b9d417c19986019e28f7c00ac8132da4eb0fe393b057
+  ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
+  aws-eventstream (1.4.0) sha256=116bf85c436200d1060811e6f5d2d40c88f65448f2125bc77ffce5121e6e183b
+  aws-partitions (1.1213.0) sha256=5ec132d91d44ef2702125b8f71f0e4fc2cd7de040e02c5d0aefb87219fd2e05e
+  aws-sdk-core (3.242.0) sha256=c17b3003acc78d80c1a8437b285a1cfc5e4d7749ce7821cf3071e847535a29a0
+  aws-sdk-kms (1.121.0) sha256=d563c1cfb4b5754efbc671216c8eca875338748adad0f42518c28dfa0a2d01e0
+  aws-sdk-s3 (1.213.0) sha256=af596ccf544582406db610e95cc9099276eaf03142f57a2f30f76940e598e50d
+  aws-sdk-secretsmanager (1.128.0) sha256=d62cde1d34161097626ceb7addcaeaa5514046c6405fb745c6c64c47c02d2b9a
+  aws-sigv4 (1.12.1) sha256=6973ff95cb0fd0dc58ba26e90e9510a2219525d07620c8babeb70ef831826c00
+  azure_graph_rbac (0.17.2) sha256=4fb5cb6af3233a70a4051f824b394f0a296ea2b33d29ad861c41f582ae44bd56
+  azure_mgmt_key_vault (0.17.7) sha256=bf22f4d4486b6c2f811aa53bc7d57ec040f524d04d2a9e73f4a390414b548e38
+  azure_mgmt_resources (0.18.2) sha256=a3cecdd5df10e05c43559d08c3f5a9d0ef7367ebb3425468751129d88fd290dc
+  azure_mgmt_security (0.19.0) sha256=e281c9f6ba0998dfddedaea4baff6318b37ab098070622dd6ef17345be6f0286
+  azure_mgmt_storage (0.23.0) sha256=389b5aaa88daba72e8e266403eb5026039b1033e8d1cd4054eb6bbf3ed346046
+  base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bcrypt_pbkdf (1.1.2) sha256=c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
+  benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
+  berkshelf (8.1.6) sha256=7801b8462d4497c9ebd9728a70cecbafb7c56bf13f3c727ac003882c29edbe6c
+  bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
+  builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
+  chef (18.3.0) sha256=df992f58e8d279b8b11fbaba85179911bde14dca7e01416c1d3b4f1e659e4ec5
+  chef-cleanroom (1.0.5) sha256=b4b7fd7759a1e5111d1a16091ea157be5a3dbf0d4035a47cd6b9db000a1a65fe
+  chef-config (18.3.0) sha256=c183a2ff41da8d63b1e4a60853c9c701a053ab9afe13df767a578db5f07072df
+  chef-gyoku (1.5.0) sha256=7354a3cff8243cc9bbf9ac136e63ecfbf4a7b6f07622f5a092a0f7626fcff836
+  chef-telemetry (1.1.1) sha256=bd004fd20cd0677936d3ada881b1d318185a76186e1774634542366707633151
+  chef-utils (18.3.0) sha256=827f7aace26ba9f5f8aca45059644205cc715baded80229f1fd5518d21970701
+  chef-vault (4.2.5) sha256=e2c97b7139fb34a72db3dffa8b53e418f7963b82d293757271abd2c081b43408
+  chef-winrm (2.5.0) sha256=d0214fc72e39d7830e8bdc28d0efb12e1ef55bd1cd547ae4bf2e509d298b85f3
+  chef-winrm-elevated (1.2.5) sha256=9985b4eb1e5bbfbe1db9e4bbea29a5775ee9e6e7d52cfbb9787bcab605ff5807
+  chef-winrm-fs (1.4.2) sha256=e8d696faf8eb070cfcd688a580469f9cf3cbd1a4d11a3a001469fcc780b8683a
+  chef-zero (15.1.0) sha256=85220e9f3db8ee0cd0697f08baa8f7f0bc4bc2920bd03c7191a6f41b5450588a
+  coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
+  concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
+  connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
+  cookstyle (8.5.3) sha256=c0727abcaa6287b8feef60e5a041bcedda17e160f0ab406d2624e41a9b97ab13
+  corefoundation (0.3.13) sha256=29c07766cc1d7e428b116b9ebe03b16bb829ef9104f0fa8fff899a61daf02f93
+  csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
+  date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
+  declarative (0.0.20) sha256=8021dd6cb17ab2b61233c56903d3f5a259c5cf43c80ff332d447d395b17d9ff9
+  diff-lcs (1.5.1) sha256=273223dfb40685548436d32b4733aa67351769c7dea621da7d9dd4813e63ddfe
+  docker-api (2.4.0) sha256=824be734f4cc8718189be9c8e795b6414acbbf7e8b082a06f959a27dd8dd63e6
+  domain_name (0.6.20240107) sha256=5f693b2215708476517479bf2b3802e49068ad82167bcd2286f899536a17d933
+  drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
+  ed25519 (1.4.0) sha256=16e97f5198689a154247169f3453ef4cfd3f7a47481fde0ae33206cdfdcac506
+  erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
+  erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
+  erubis (2.7.0) sha256=63653f5174a7997f6f1d6f465fbe1494dcc4bdab1fb8e635f6216989fb1148ba
+  excon (1.3.2) sha256=a089babe98638e58042a7d542b2bbd183304527e33d612b6dde22fa491a544a5
+  faraday (1.10.4) sha256=a384c541cde688d68bf85055723aecb4100c3fa41b53beb2011b245960ab2f19
+  faraday-cookie_jar (0.0.8) sha256=0140605823f8cc63c7028fccee486aaed8e54835c360cffc1f7c8c07c4299dbb
+  faraday-em_http (1.0.0) sha256=7a3d4c7079789121054f57e08cd4ef7e40ad1549b63101f38c7093a9d6c59689
+  faraday-em_synchrony (1.0.1) sha256=bf3ce45dcf543088d319ab051f80985ea6d294930635b7a0b966563179f81750
+  faraday-excon (1.1.0) sha256=b055c842376734d7f74350fe8611542ae2000c5387348d9ba9708109d6e40940
+  faraday-follow_redirects (0.5.0) sha256=5cde93c894b30943a5d2b93c2fe9284216a6b756f7af406a1e55f211d97d10ad
+  faraday-httpclient (1.0.1) sha256=4c8ff1f0973ff835be8d043ef16aaf54f47f25b7578f6d916deee8399a04d33b
+  faraday-multipart (1.2.0) sha256=7d89a949693714176f612323ca13746a2ded204031a6ba528adee788694ef757
+  faraday-net_http (1.0.2) sha256=63992efea42c925a20818cf3c0830947948541fdcf345842755510d266e4c682
+  faraday-net_http_persistent (1.2.0) sha256=0b0cbc8f03dab943c3e1cc58d8b7beb142d9df068b39c718cd83e39260348335
+  faraday-patron (1.0.0) sha256=dc2cd7b340bb3cc8e36bcb9e6e7eff43d134b6d526d5f3429c7a7680ddd38fa7
+  faraday-rack (1.0.0) sha256=ef60ec969a2bb95b8dbf24400155aee64a00fc8ba6c6a4d3968562bcc92328c0
+  faraday-retry (1.0.3) sha256=add154f4f399243cbe070806ed41b96906942e7f5259bb1fe6daf2ec8f497194
+  ffi (1.16.3) sha256=6d3242ff10c87271b0675c58d68d3f10148fabc2ad6da52a18123f06078871fb
+  ffi-libarchive (1.1.14) sha256=a3e4ca9484ee4ad754ad04fcc14a12686d48d1463c264173d6f8ff0a4df816a6
+  ffi-yajl (2.7.7) sha256=0628764711c0eadf00df04512bb6af5ae800275556f1fcc312fcc1739760a812
+  fuzzyurl (0.9.0) sha256=542efa80f2bcaadbdc402c2f0b572f2e335a1d53e375aecad68bbb3d86860c0f
+  google-apis-admin_directory_v1 (0.46.0) sha256=bd91d9a3fb6be2afff2d916e69ab888c9e8d296f9dc33df46e3f2c421f2717a6
+  google-apis-cloudkms_v1 (0.41.0) sha256=7c492f1ab4f4d015bd9d937d6ce75179ec3843e28acfba9726e8c2b27f8b5aea
+  google-apis-cloudresourcemanager_v1 (0.35.0) sha256=eefd01037e936348d5df62770de0b80f53f5f39d824f767738f571f6204502a4
+  google-apis-compute_v1 (0.83.0) sha256=5dd2f4439b825069cee7e3493fb4df8bbce0fef2bb63d8e22ae40d33d7783783
+  google-apis-core (0.11.3) sha256=43217013b129d7d52c31ebf94146646c55f463ed25e68ad7523fb644d5a9cc97
+  google-apis-iam_v1 (0.50.0) sha256=e236e9178ee1cb130f66386ccb8a899eef4bba46f6b99ddca3e3ea9f1793612c
+  google-apis-monitoring_v3 (0.51.0) sha256=65bd7ab5138a207564e61dbe92cd23a34dfa48f4b90cd533c2a2902207c35f75
+  google-apis-storage_v1 (0.30.0) sha256=4fd941c2a985423093fd4f3d80c15554bef16b9ecb221aa57d254a508e50886f
+  googleauth (1.8.1) sha256=814adadaaa1221dce72a67131e3ecbd6d23491a161ec84fb15fd353b87d8c9e7
+  gssapi (1.3.1) sha256=c51cf30842ee39bd93ce7fc33e20405ff8a04cda9dec6092071b61258284aee1
+  hashie (4.1.0) sha256=7890dcb9ec18a4b66acec797018c73824b89cef5eb8cda36e8e8501845e87a09
+  http-accept (1.7.0) sha256=c626860682bfbb3b46462f8c39cd470fd7b0584f61b3cc9df5b2e9eb9972a126
+  http-cookie (1.1.0) sha256=38a5e60d1527eebc396831b8c4b9455440509881219273a6c99943d29eadbb19
+  httpclient (2.9.0) sha256=4b645958e494b2f86c2f8a2f304c959baa273a310e77a2931ddb986d83e498c8
+  i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
+  inifile (3.0.0) sha256=b103eb3655ec93cc626cf2de00950e91f7e69b8398842968e17e1815cfacbfb0
+  iniparse (1.5.0) sha256=36a165e98d8a250b7631c4a7f9afba32af78f089970cd6446a39771189c761f1
+  inspec-core (5.22.3) sha256=73b70dca8d891b2f4bdea61afea2c62a2753af1b8d19d74e32a68b9820391960
+  io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
+  ipaddress (0.8.3) sha256=85640c4f9194c26937afc8c78e3074a8e7c97d5d1210358d1440f01034d006f5
+  irb (1.17.0) sha256=168c4ddb93d8a361a045c41d92b2952c7a118fa73f23fe14e55609eb7a863aae
+  jmespath (1.6.2) sha256=238d774a58723d6c090494c8879b5e9918c19485f7e840f2c1c7532cf84ebcb1
+  json (2.18.1) sha256=fe112755501b8d0466b5ada6cf50c8c3f41e897fa128ac5d263ec09eedc9f986
+  jwt (2.10.2) sha256=31e1ee46f7359883d5e622446969fe9c118c3da87a0b1dca765ce269c3a0c4f4
+  kitchen-dokken (2.22.1) sha256=d0e83c725a2890fb77866df399b1858ecb563b7e5db11b920d8a83fb631d43d7
+  kitchen-inspec (3.1.0) sha256=cc3bd76fbe2de279baecd7e262ed02574aa2bddef9a539a73ed49a0bea2a7a09
+  kitchen-omnibus-chef (1.1.0) sha256=22a8be0c09fd61acbcbcfc6ca28c1999223028c241e8776a989ede338909d24b
+  language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
+  libyajl2 (2.1.0) sha256=aa5df6c725776fc050c8418450de0f7c129cb7200b811907c4c0b3b5c0aea0ef
+  license-acceptance (2.1.13) sha256=eecb259b87adaebf162cd25e613b0e0f6d3005c92ffd76ddeca0c053e450058a
+  lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
+  little-plugger (1.1.4) sha256=d5f347c00d9d648040ef7c17d6eb09d3d0719adf19ca30d1a3b6fb26d0a631bb
+  lockfile (2.1.3) sha256=39cbf399299f140706481370292d941c70e34e98208a78f3739b7aee651c3236
+  logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
+  logging (2.4.0) sha256=ba8893a3c211b836f4131bb93b3eb3137a0c3b1fcd0ec3d570e324d8bdc00ccb
+  method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
+  mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
+  mime-types-data (3.2026.0203) sha256=54353d693af028847391c28361c07d4b8b689cad78c3e1cc272fb1205c6d2a2f
+  mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
+  minitar (1.1.0) sha256=38db0cfb6f3801017946cdcd8dc53f2cf3fd41ff752892312bf9a1639c9ea23e
+  minitest (6.0.1) sha256=7854c74f48e2e975969062833adc4013f249a4b212f5e7b9d5c040bf838d54bb
+  mixlib-archive (1.3.3) sha256=1e66ec255ee60a21a35633c5c657ba5e0712039aaa3dcf948c726af179987056
+  mixlib-authentication (3.0.10) sha256=c5be44490cebf8481171f09cc25e646663aee3ae58ea2de6d9f94bc922c2a61e
+  mixlib-cli (2.1.8) sha256=e6f27be34d580f6ed71731ca46b967e57793a627131c1f6e1ed2dad39ea3bdf9
+  mixlib-config (3.0.27) sha256=d7748b1898e4f16502afec1de00b5ad65c6de405114b1b0c65ec61b1a9100148
+  mixlib-install (3.15.0) sha256=f31d80a4443259ddb7dc409ac95bac2c8638020b477f19ca5c221121e64d6931
+  mixlib-log (3.2.3) sha256=2a1d3fa83522a320edd493827c901b773fb5d185fac7efd81d028d8e1166a768
+  mixlib-shellout (3.4.10) sha256=7c8a6c5a6c90922a8871ed682129c19c9b1a514eedea2e867077229e6a415f0c
+  mixlib-versioning (1.2.12) sha256=798775c5e02ec2e3932cac3447ba51aabc096fbd310cc5a1ac9d77c11fcb1e33
+  molinillo (0.8.0) sha256=efbff2716324e2a30bccd3eba1ff3a735f4d5d53ffddbc6a2f32c0ca9433045d
+  ms_rest (0.7.6) sha256=272a1d592594c5c25edd2f3378c17ac9d840a29991572fb1bc7616d5565030ca
+  ms_rest_azure (0.12.0) sha256=3006060104629cf56f611bee9040023e461c748a7a97eaa601028b4cd03a231a
+  multi_json (1.19.1) sha256=7aefeff8f2c854bf739931a238e4aea64592845e0c0395c8a7d2eea7fdd631b7
+  multipart-post (2.4.1) sha256=9872d03a8e552020ca096adadbf5e3cb1cd1cdd6acd3c161136b8a5737cdb4a8
+  mutex_m (0.3.0) sha256=cfcb04ac16b69c4813777022fdceda24e9f798e48092a2b817eb4c0a782b0751
+  net-ftp (0.3.9) sha256=307817ccf7f428f79d083f7e36dbb46a9d1d375e0d23027824de1866f0b13b65
+  net-protocol (0.2.2) sha256=aa73e0cba6a125369de9837b8d8ef82a61849360eba0521900e2c3713aa162a8
+  net-scp (4.1.0) sha256=a99b0b92a1e5d360b0de4ffbf2dc0c91531502d3d4f56c28b0139a7c093d1a5d
+  net-sftp (4.0.0) sha256=65bb91c859c2f93b09826757af11b69af931a3a9155050f50d1b06d384526364
+  net-ssh (7.3.0) sha256=172076c4b30ce56fb25a03961b0c4da14e1246426401b0f89cba1a3b54bf3ef0
+  net-ssh-gateway (2.0.0) sha256=1d9cb51de52e2d64982f4c136c30435e914c05a980814a91055c89e183397bd0
+  netrc (0.11.0) sha256=de1ce33da8c99ab1d97871726cba75151113f117146becbe45aa85cb3dabee3f
+  nori (2.7.1) sha256=6166cd336959854762073e2fbae888593809cac1b3e904f4fb009313d7226861
+  octokit (5.6.1) sha256=48efb2c2aa83c2c394358f073d35ad71d4ac0f14870cd00ceebd3ef3949fe495
+  ohai (18.2.8) sha256=d9af88b7585b4f6e08396884c859f79acec80046d280278c600acd4234b89b86
+  os (1.1.4) sha256=57816d6a334e7bd6aed048f4b0308226c5fb027433b67d90a9ab435f35108d3f
+  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
+  parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
+  parser (3.3.10.1) sha256=06f6a725d2cd91e5e7f2b7c32ba143631e1f7c8ae2fb918fc4cebec187e6a688
+  parslet (1.8.2) sha256=08d1ab3721cd3f175bfbee8788b2ddff71f92038f2d69bd65454c22bb9fbd98a
+  pastel (0.8.0) sha256=481da9fb7d2f6e6b1a08faf11fa10363172dc40fd47848f096ae21209f805a75
+  plist (3.7.2) sha256=d37a4527cc1116064393df4b40e1dbbc94c65fa9ca2eec52edf9a13616718a42
+  pp (0.6.3) sha256=2951d514450b93ccfeb1df7d021cae0da16e0a7f95ee1e2273719669d0ab9df6
+  prettyprint (0.2.0) sha256=2bc9e15581a94742064a3cc8b0fb9d45aae3d03a1baa6ef80922627a0766f193
+  prism (1.9.0) sha256=7b530c6a9f92c24300014919c9dcbc055bf4cdf51ec30aed099b06cd6674ef85
+  proxifier2 (1.1.0) sha256=030ed248a649c77f2ad640195f5c57c9f76e5c56a5c9fc0c52ca8ed97000b332
+  pry (0.16.0) sha256=d76c69065698ed1f85e717bd33d7942c38a50868f6b0673c636192b3d1b6054e
+  psych (5.3.1) sha256=eb7a57cef10c9d70173ff74e739d843ac3b2c019a003de48447b2963d81b1974
+  public_suffix (7.0.2) sha256=9114090c8e4e7135c1fd0e7acfea33afaab38101884320c65aaa0ffb8e26a857
+  racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
+  rack (3.2.4) sha256=5d74b6f75082a643f43c1e76b419c40f0e5527fcfee1e669ac1e6b73c0ccb6f6
+  rackup (2.3.1) sha256=6c79c26753778e90983761d677a48937ee3192b3ffef6bc963c0950f94688868
+  rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
+  rake (13.3.1) sha256=8c9e89d09f66a26a01264e7e3480ec0607f0c497a861ef16063604b1b08eb19c
+  rdoc (7.2.0) sha256=8650f76cd4009c3b54955eb5d7e3a075c60a57276766ebf36f9085e8c9f23192
+  regexp_parser (2.11.3) sha256=ca13f381a173b7a93450e53459075c9b76a10433caadcb2f1180f2c741fc55a4
+  reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
+  representable (3.2.0) sha256=cc29bf7eebc31653586849371a43ffe36c60b54b0a6365b5f7d95ec34d1ebace
+  rest-client (2.1.0) sha256=35a6400bdb14fae28596618e312776c158f7ebbb0ccad752ff4fa142bf2747e3
+  retriable (3.1.2) sha256=0a5a5d0ca4ba61a76fb31a17ab8f7f80281beb040c329d34dfc137a1398688e0
+  retryable (3.0.5) sha256=c9f3dd6836bacf59c08b3f33548416debca7c0757e0c008d35df32ec9266d55f
+  rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
+  rspec (3.11.0) sha256=8907f32e5c3095724e54c143e9cfc4df37079be349343dab9029becdb259bea5
+  rspec-core (3.11.0) sha256=46317850396fea47e6793dd5a7606c0816aa38f5149f4cd5de308495b89b1085
+  rspec-expectations (3.11.1) sha256=6c0dbc560a4aea8e058e3dc2633657725d9001d17ba01eb1582122a3ccfc2b50
+  rspec-its (1.3.1) sha256=c404314f933ffd5ef6e2cfa87167e272477a7007467db5ec59c96ad1679c51f6
+  rspec-mocks (3.11.2) sha256=73261de1595f8ef6738286dcd48fa5a801fef1f97a5876954a320b195bba58ef
+  rspec-support (3.11.1) sha256=f85f276a37e096b7bf6f308a96c59ba0a5398907f04942cede66cabc598c01b0
+  rubocop (1.81.7) sha256=6fb5cc298c731691e2a414fe0041a13eb1beed7bab23aec131da1bcc527af094
+  rubocop-ast (1.49.0) sha256=49c3676d3123a0923d333e20c6c2dbaaae2d2287b475273fddee0c61da9f71fd
+  ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
+  ruby2_keywords (0.0.5) sha256=ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef
+  rubyntlm (0.6.5) sha256=47013402b99ae29ee93f930af51edaec8c6008556f4be25705a422b4430314f5
+  rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
+  sawyer (0.9.3) sha256=0d0f19298408047037638639fe62f4794483fb04320269169bd41af2bdcf5e41
+  securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
+  semverse (3.0.2) sha256=c9726aee7858d37c84948a4101daffdcf03a0963a12a33ad7cc39a72c03530ef
+  signet (0.21.0) sha256=d617e9fbf24928280d39dcfefba9a0372d1c38187ffffd0a9283957a10a8cd5b
+  socksify (1.8.1) sha256=cf2a01720cc32490cc657b3233730620a03b92e98281726872ebebedfea9a856
+  solve (4.0.4) sha256=7e7a45c26cb616bb1967e38037a3425b97ff1d5817f170299b8566409cce3415
+  sslshake (1.3.1) sha256=1069c97ed93441e1e1c167fb59f0eb952f64156784d9b321f60528d4f5747164
+  stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
+  strings (0.2.1) sha256=933293b3c95cf85b81eb44b3cf673e3087661ba739bbadfeadf442083158d6fb
+  strings-ansi (0.2.0) sha256=90262d760ea4a94cc2ae8d58205277a343409c288cbe7c29416b1826bd511c88
+  syslog (0.4.0) sha256=c4c38ae982fe72903ec41094b5e5f2dcbbc66f510d0225c9702e5e980d827472
+  syslog-logger (1.6.8) sha256=7541f34681c7d10ed63e8ee82733b0a60f79264a6ef3f489a20dce80e105c293
+  test-kitchen (4.0.0) sha256=24017be5f7a8867d1b77eee3fc64409be6f1fb0815c1a4e12a32ef885d3afe48
+  thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
+  time (0.4.2) sha256=f324e498c3bde9471d45a7d18f874c27980e9867aa5cfca61bebf52262bc3dab
+  timeliness (0.3.10) sha256=c357233ce19dc53148e8b29dfddde134689f18f52b32928e9dfe12ebcf4a773f
+  timeout (0.6.0) sha256=6d722ad619f96ee383a0c557ec6eb8c4ecb08af3af62098a0be5057bf00de1af
+  tomlrb (1.3.0) sha256=68666bf53fa70ba686a48a7435ce7e086f5227c58c4c993bd9792f4760f2a503
+  trailblazer-option (0.1.2) sha256=20e4f12ea4e1f718c8007e7944ca21a329eee4eed9e0fa5dde6e8ad8ac4344a3
+  train (3.16.1) sha256=621fe28bcd042a8795f29ccf1405304cdef94a176104c408c7ee2a18e509a4a5
+  train-core (3.16.1) sha256=bc3f3eb4d994ab04293aef73e673069c9c435058d6918be638182e6640d55ddd
+  train-rest (0.5.0) sha256=63dcabb396022570cf1f21a3e77b2f64a8b3a85179a0b6e2be91a6fff9268a63
+  train-winrm (0.4.3) sha256=4fa35666f24254984fec1d3bf677c510f180531219ba0f4feb09293df98784fa
+  tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
+  tty-box (0.7.0) sha256=17f453a0c1df43871fdb6de461ee797b78574dacc652372fa2ae98a00785df8b
+  tty-color (0.6.0) sha256=6f9c37ca3a4e2367fb2e6d09722762647d6f455c111f05b59f35730eeb24332a
+  tty-cursor (0.7.1) sha256=79534185e6a777888d88628b14b6a1fdf5154a603f285f80b1753e1908e0bf48
+  tty-prompt (0.23.1) sha256=fcdbce905238993f27eecfdf67597a636bc839d92192f6a0eef22b8166449ec8
+  tty-reader (0.9.0) sha256=c62972c985c0b1566f0e56743b6a7882f979d3dc32ff491ed490a076f899c2b1
+  tty-screen (0.8.2) sha256=c090652115beae764336c28802d633f204fb84da93c6a968aa5d8e319e819b50
+  tty-table (0.12.0) sha256=fdc27a4750835c1a16efe19a0b857e3ced3652cc7aceafe6dca94908965b9939
+  tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
+  uber (0.1.0) sha256=5beeb407ff807b5db994f82fa9ee07cfceaa561dad8af20be880bc67eba935dc
+  unf_ext (0.0.9.1) sha256=926114a858934126c6bbfd3254347dadb5dae354711869368c0f75e3765fc6e9
+  unicode-display_width (2.6.0) sha256=12279874bba6d5e4d2728cef814b19197dbb10d7a7837a869bab65da943b7f5a
+  unicode_utils (1.4.0) sha256=b922d0cf2313b6b7136ada6645ce7154ffc86418ca07d53b058efe9eb72f2a40
+  uuidtools (2.2.0) sha256=c4aed168141746d2357ce907626b83998084aeb3c6ac16670ae902a462191069
+  vault (0.18.2) sha256=29346c2d8364c19effb548b7a8952bf187545b99b70d1ddde76bd6c69046d27c
+  webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
+  wisper (2.0.1) sha256=ce17bc5c3a166f241a2e6613848b025c8146fce2defba505920c1d1f3f88fae6
+  wmi-lite (1.0.7) sha256=116ef5bb470dbe60f58c2db9047af3064c16245d6562c646bc0d90877e27ddda
+  yajl (0.3.4) sha256=0d718473ec261a817e18eb79648bb68d050baf2624783306a2d4dad5a50431e4
+
 BUNDLED WITH
-   2.6.5
+  4.0.6
