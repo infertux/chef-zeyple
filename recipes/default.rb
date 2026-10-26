@@ -70,16 +70,16 @@ node.default['postfix']['master']["#{node['zeyple']['relay']['host']}:#{node['ze
   chroot: false,
   maxproc: '10',
   command: 'smtpd',
-  args: [<<~ARGS,
-    -o content_filter=
-    -o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters
-    -o smtpd_helo_restrictions=
-    -o smtpd_client_restrictions=
-    -o smtpd_sender_restrictions=
-    -o smtpd_recipient_restrictions=permit_mynetworks,reject
-    -o mynetworks=127.0.0.0/8,[::1]/128
-    -o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128
-  ARGS
+  # one argument per line since master.cf continuation lines must be indented
+  args: [
+    '-o content_filter=',
+    '-o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters',
+    '-o smtpd_helo_restrictions=',
+    '-o smtpd_client_restrictions=',
+    '-o smtpd_sender_restrictions=',
+    '-o smtpd_recipient_restrictions=permit_mynetworks,reject',
+    '-o mynetworks=127.0.0.0/8,[::1]/128',
+    '-o smtpd_authorized_xforward_hosts=127.0.0.0/8,[::1]/128',
   ],
 }
 
