@@ -9,7 +9,7 @@ Requirements
 ------------
 
 - Chef or Cinc 18 or later
-- Debian 12, Debian 13 or Ubuntu 24.04 (the platforms tested in CI)
+- Debian 12, Debian 13, Ubuntu 24.04 or Ubuntu 26.04 (the platforms tested in CI)
 - Postfix (installed with the [postfix cookbook](https://supermarket.chef.io/cookbooks/postfix))
 
 Usage
