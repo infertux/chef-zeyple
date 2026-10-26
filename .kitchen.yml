@@ -62,4 +62,4 @@ suites:
         # TODO: remove once Zeyple v2.0.0 is tagged (https://github.com/infertux/zeyple/pull/78)
         upstream:
           script:
-            url: https://raw.githubusercontent.com/infertux/zeyple/fa214a3e4fa80a1fd5c7feed6a06a5506c23d140/zeyple/zeyple.py
+            url: https://raw.githubusercontent.com/infertux/zeyple/48874687ab173d3b3e4d74d9c722fe18da3e63d3/zeyple/zeyple.py
