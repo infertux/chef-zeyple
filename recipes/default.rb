@@ -84,5 +84,7 @@ node.default['postfix']['master']["#{node['zeyple']['relay']['host']}:#{node['ze
 }
 
 node.default['postfix']['main']['content_filter'] = 'zeyple'
+# run Zeyple once per recipient so an error for one recipient doesn't affect the others
+node.default['postfix']['main']['zeyple_destination_recipient_limit'] = 1
 
 include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')

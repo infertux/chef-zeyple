@@ -25,6 +25,10 @@ control 'zeyple-1' do
     it { should be_executable.by('owner') }
   end
 
+  describe command('postconf -h zeyple_destination_recipient_limit') do
+    its('stdout') { should eq "1\n" }
+  end
+
   describe command('ls -1 /var/lib/zeyple/keys/ | wc -l') do
     its('stdout') { should_not eq '0' }
   end
