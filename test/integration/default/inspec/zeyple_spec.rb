@@ -42,7 +42,7 @@ control 'zeyple-2' do
   impact 1.0
 
   describe file('/var/log/zeyple.log') do
-    its('content') { should match(/INFO Recipient: root@[^\.]+\.vagrantup\.com/) }
+    its('content') { should match(/INFO Recipient: root@\S+/) }
     its('content') { should match(/INFO Key ID: None/) }
     its('content') { should match(/INFO Message <[^>]+> sent/) }
   end

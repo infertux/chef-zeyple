@@ -22,17 +22,24 @@ verifier:
 platforms:
   # @see https://github.com/chef-cookbooks/testing_examples/blob/main/kitchen.dokken.yml
   # @see https://hub.docker.com/u/dokken
-  - name: debian-11
-    driver:
-      image: dokken/debian-11
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update
-        - RUN /usr/bin/apt-get upgrade -y
   - name: debian-12
     driver:
       image: dokken/debian-12
-      pid_one_command: /bin/systemd
+      pid_one_command: /lib/systemd/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+        - RUN /usr/bin/apt-get upgrade -y
+  - name: debian-13
+    driver:
+      image: dokken/debian-13
+      pid_one_command: /lib/systemd/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+        - RUN /usr/bin/apt-get upgrade -y
+  - name: ubuntu-24.04
+    driver:
+      image: dokken/ubuntu-24.04
+      pid_one_command: /lib/systemd/systemd
       intermediate_instructions:
         - RUN /usr/bin/apt-get update
         - RUN /usr/bin/apt-get upgrade -y
@@ -47,3 +54,7 @@ suites:
       zeyple:
         gpg:
           keys: ["0xEEC73D5809A98A9B"]
+        # TODO: remove once Zeyple v2.0.0 is tagged (https://github.com/infertux/zeyple/pull/78)
+        upstream:
+          script:
+            url: https://raw.githubusercontent.com/infertux/zeyple/cbeae7f599b27599a8ae5c520337ac4229d423a7/zeyple/zeyple.py

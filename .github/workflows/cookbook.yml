@@ -1,0 +1,43 @@
+name: Cookbook
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0" # run weekly on Sundays
+
+permissions:
+  contents: read
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Run Cookstyle
+        run: bundle exec rake style:all
+
+  kitchen:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [debian-12, debian-13, ubuntu-2404]
+      fail-fast: false
+    env:
+      CHEF_LICENSE: accept-no-persist
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Run Test Kitchen
+        run: bundle exec kitchen test default-${{ matrix.platform }} --destroy=always
