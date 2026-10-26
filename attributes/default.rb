@@ -9,13 +9,8 @@ default['zeyple']['gpg']['keys'] = %w()
 
 # You might configure these attributes (defaults are fine)
 
-default['zeyple']['dependencies'] = %w(gnupg sudo)
-default['zeyple']['dependencies'] |= \
-  if platform_family?('rhel')
-    %w(pygpgme)
-  else
-    %w(python-gpgme dirmngr)
-  end
+default['zeyple']['dependencies'] = %w(gnupg python3-gpg sudo)
+default['zeyple']['dependencies'] |= %w(dirmngr) unless platform_family?('rhel')
 
 default['zeyple']['user'] = 'zeyple'
 default['zeyple']['config_file'] = '/etc/zeyple.conf'
@@ -23,13 +18,15 @@ default['zeyple']['data_dir'] = '/var/lib/zeyple'
 default['zeyple']['log_file'] = '/var/log/zeyple.log'
 default['zeyple']['relay']['host'] = `wc -l < /proc/net/if_inet6`.chomp == '0' ? '127.0.0.1' : 'localhost'
 default['zeyple']['relay']['port'] = '10026'
-default['zeyple']['gpg']['server'] = 'hkp://keys.gnupg.net'
+# keyserver.ubuntu.com keeps the user IDs (email addresses) Zeyple needs to match recipients,
+# keys.openpgp.org only keeps the verified ones
+default['zeyple']['gpg']['server'] = 'hkps://keyserver.ubuntu.com'
 default['zeyple']['script'] = '/usr/sbin/zeyple'
 
-default['zeyple']['version'] = '1.2.2'
+default['zeyple']['version'] = '2.0.0'
 
 default['zeyple']['upstream']['script']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/v#{node['zeyple']['version']}/zeyple/zeyple.py"
-default['zeyple']['upstream']['script']['checksum'] = '5f0671fd98e791b600dbb652e83acbcc5ecaede0da4758c5e26ea7094335ab58'
+default['zeyple']['upstream']['script']['checksum'] = '515414642f03a0ba0908afb66df3a1545e8f9b2bd08e6c56128866c0d1e70061'
 
 default['zeyple']['upstream']['selinux']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/v#{node['zeyple']['version']}/selinux/zeyple.te"
 default['zeyple']['upstream']['selinux']['checksum'] = '2044cb49b77fd183f9d581135ef6998d3e55161275c9cb16ec8f0e0ef8a21453'
