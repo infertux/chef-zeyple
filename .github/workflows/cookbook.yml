@@ -40,4 +40,17 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
       - name: Run Test Kitchen
-        run: bundle exec kitchen test default-${{ matrix.platform }} --destroy=always
+        run: bundle exec kitchen test default-${{ matrix.platform }} --destroy=never
+      - name: Show Postfix status
+        if: failure()
+        run: |
+          bundle exec kitchen exec default-${{ matrix.platform }} -c '
+            postfix check
+            systemctl status "postfix*" --no-pager --lines=30
+            journalctl --no-pager --lines=50
+            postconf -n
+            grep -A9 10026 /etc/postfix/master.cf
+          '
+      - name: Destroy instance
+        if: always()
+        run: bundle exec kitchen destroy default-${{ matrix.platform }}
