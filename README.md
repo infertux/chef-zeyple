@@ -1,14 +1,16 @@
 Zeyple Cookbook
 ===============
-[![Cookbook](https://img.shields.io/cookbook/v/zeyple.svg)](https://supermarket.getchef.com/cookbooks/zeyple)
-[![Build Status](https://travis-ci.org/infertux/chef-zeyple.svg?branch=master)](https://travis-ci.org/infertux/chef-zeyple)
+[![Cookbook](https://img.shields.io/cookbook/v/zeyple.svg)](https://supermarket.chef.io/cookbooks/zeyple)
+[![Build Status](https://github.com/infertux/chef-zeyple/actions/workflows/cookbook.yml/badge.svg)](https://github.com/infertux/chef-zeyple/actions/workflows/cookbook.yml)
 
 This cookbook downloads, installs and configures [Zeyple](https://github.com/infertux/zeyple).
 
 Requirements
 ------------
 
-- Postfix
+- Chef or Cinc 18 or later
+- Debian 12, Debian 13 or Ubuntu 24.04 (the platforms tested in CI)
+- Postfix (installed with the [postfix cookbook](https://supermarket.chef.io/cookbooks/postfix))
 
 Usage
 -----
