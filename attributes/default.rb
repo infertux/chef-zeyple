@@ -26,7 +26,7 @@ default['zeyple']['script'] = '/usr/sbin/zeyple'
 default['zeyple']['version'] = '2.0.0'
 
 default['zeyple']['upstream']['script']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/v#{node['zeyple']['version']}/zeyple/zeyple.py"
-default['zeyple']['upstream']['script']['checksum'] = '515414642f03a0ba0908afb66df3a1545e8f9b2bd08e6c56128866c0d1e70061'
+default['zeyple']['upstream']['script']['checksum'] = '2ad8dd23d8b058812d4954a544c151772519270b03d5c8dd7df8f1cceac7695f'
 
 default['zeyple']['upstream']['selinux']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/v#{node['zeyple']['version']}/selinux/zeyple.te"
 default['zeyple']['upstream']['selinux']['checksum'] = '2044cb49b77fd183f9d581135ef6998d3e55161275c9cb16ec8f0e0ef8a21453'
