@@ -66,7 +66,7 @@ suites:
       zeyple:
         gpg:
           keys: ["0xEEC73D5809A98A9B"]
-        # TODO: remove once Zeyple v2.0.0 is tagged (https://github.com/infertux/zeyple/pull/78)
+        # TODO: remove once Zeyple v3.0.0 is tagged (https://github.com/infertux/zeyple/pull/78)
         upstream:
           script:
-            url: https://raw.githubusercontent.com/infertux/zeyple/e33d3a7acce70394da71dab3fcba5f29b8f01005/zeyple/zeyple.py
+            url: https://raw.githubusercontent.com/infertux/zeyple/331cfaef2099157f93f09b140c9a063760b07f87/zeyple/zeyple.py
