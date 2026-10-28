@@ -6,6 +6,7 @@ Zeyple CHANGELOG
 - Fetch keys from keyserver.ubuntu.com since the SKS keyserver pool behind keys.gnupg.net is gone
 - Fix the reinjection service in `master.cf`, whose unindented lines kept Postfix from starting
 - Set `zeyple_destination_recipient_limit = 1` so Postfix runs Zeyple once per recipient
+- Install the Zeyple script and config as root so the zeyple user, which handles the emails, can't modify them
 - Test on Debian 12, Debian 13, Ubuntu 24.04 and Ubuntu 26.04 with GitHub Actions instead of Travis CI
 
 ## v2.0.0

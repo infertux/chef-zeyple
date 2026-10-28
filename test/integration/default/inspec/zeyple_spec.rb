@@ -11,7 +11,8 @@ control 'zeyple-1' do
 
   describe file('/etc/zeyple.conf') do
     it { should be_file }
-    its('owner') { should eq 'zeyple' }
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0644' }
   end
 
   describe file('/var/log/zeyple.log') do
@@ -21,8 +22,8 @@ control 'zeyple-1' do
 
   describe file('/usr/sbin/zeyple') do
     it { should be_file }
-    its('owner') { should eq 'zeyple' }
-    it { should be_executable.by('owner') }
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0755' }
   end
 
   describe command('postconf -h zeyple_destination_recipient_limit') do

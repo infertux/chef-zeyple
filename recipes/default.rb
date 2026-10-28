@@ -28,18 +28,19 @@ node['zeyple']['gpg']['keys'].each do |key|
   end
 end
 
+# the script and config belong to root so the zeyple user, which handles the emails, can't modify them
 remote_file node['zeyple']['script'] do
   source node['zeyple']['upstream']['script']['url']
-  owner node['zeyple']['user']
-  group node['zeyple']['user']
-  mode '0700'
+  owner 'root'
+  group 'root'
+  mode '0755'
   checksum node['zeyple']['upstream']['script']['checksum']
 end
 
 template node['zeyple']['config_file'] do
-  owner node['zeyple']['user']
-  group node['zeyple']['user']
-  mode '0400'
+  owner 'root'
+  group 'root'
+  mode '0644'
 end
 
 file node['zeyple']['log_file'] do
