@@ -5,7 +5,7 @@ license          'MIT'
 description      'Installs/Configures Zeyple'
 source_url       'https://github.com/infertux/chef-zeyple'
 issues_url       'https://github.com/infertux/chef-zeyple/issues'
-version          '2.0.0'
+version          '3.0.0'
 chef_version     '>= 18.0'
 
 supports 'debian'
