@@ -3,7 +3,7 @@ Zeyple Cookbook
 [![Cookbook](https://img.shields.io/cookbook/v/zeyple.svg)](https://supermarket.chef.io/cookbooks/zeyple)
 [![Build Status](https://github.com/infertux/chef-zeyple/actions/workflows/cookbook.yml/badge.svg)](https://github.com/infertux/chef-zeyple/actions/workflows/cookbook.yml)
 
-This cookbook downloads, installs and configures [Zeyple](https://github.com/infertux/zeyple).
+This cookbook installs [Zeyple](https://github.com/infertux/zeyple) from its [APT repository](https://deb.cyberbits.eu/zeyple/) and configures it with Postfix.
 
 Requirements
 ------------
@@ -22,6 +22,14 @@ Configure the list of key IDs to encrypt email with:
   "gpg": {
     "keys": ["0xEEC73D5809A98A9B"]
   }
+}
+```
+
+Zeyple's package is kept up to date on every Chef run. To pin a version instead:
+
+```json
+"zeyple": {
+  "package_version": "3.0.0"
 }
 ```
 

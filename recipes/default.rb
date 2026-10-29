@@ -3,53 +3,13 @@
 # Recipe:: default
 #
 
-package node['zeyple']['dependencies']
-
+# create the user first so the package's post-install script keeps it (with its own group and home)
 user node['zeyple']['user'] do
   system true
   shell '/usr/sbin/nologin'
   home node['zeyple']['data_dir']
   manage_home true
 end
-
-directory "#{node['zeyple']['data_dir']}/keys" do
-  owner node['zeyple']['user']
-  group node['zeyple']['user']
-  mode '0700'
-end
-
-node['zeyple']['gpg']['keys'].each do |key|
-  command_prefix = "gpg --homedir #{node['zeyple']['data_dir']}/keys --keyserver #{node['zeyple']['gpg']['server']}"
-
-  execute "#{command_prefix} --recv-keys #{key}" do
-    user node['zeyple']['user']
-    group node['zeyple']['user']
-    not_if "#{command_prefix} --list-keys #{key}", user: node['zeyple']['user'], group: node['zeyple']['user']
-  end
-end
-
-# the script and config belong to root so the zeyple user, which handles the emails, can't modify them
-remote_file node['zeyple']['script'] do
-  source node['zeyple']['upstream']['script']['url']
-  owner 'root'
-  group 'root'
-  mode '0755'
-  checksum node['zeyple']['upstream']['script']['checksum']
-end
-
-template node['zeyple']['config_file'] do
-  owner 'root'
-  group 'root'
-  mode '0644'
-end
-
-file node['zeyple']['log_file'] do
-  owner node['zeyple']['user']
-  group node['zeyple']['user']
-  mode '0600'
-end
-
-include_recipe 'postfix::default'
 
 node.default['postfix']['master']['zeyple'] = {
   # zeyple    unix  -       n       n       -       -       pipe
@@ -87,5 +47,53 @@ node.default['postfix']['master']["#{node['zeyple']['relay']['host']}:#{node['ze
 node.default['postfix']['main']['content_filter'] = 'zeyple'
 # run Zeyple once per recipient so an error for one recipient doesn't affect the others
 node.default['postfix']['main']['zeyple_destination_recipient_limit'] = 1
+
+# the package's post-install script reloads Postfix and leaves its config alone when it already mentions Zeyple
+include_recipe 'postfix::default'
+
+apt_repository 'zeyple' do
+  uri node['zeyple']['apt']['uri']
+  distribution node['zeyple']['apt']['distribution']
+  components node['zeyple']['apt']['components']
+  key node['zeyple']['apt']['key']
+end
+
+# the package installs the script as root so the zeyple user, which handles the emails, can't modify it
+# (it replaces the copy older versions of this cookbook put at the same path);
+# it also ships /etc/zeyple.conf as a conffile, which the template below then manages:
+# apt_package keeps the existing file on upgrade (--force-confold)
+package 'zeyple' do
+  version node['zeyple']['package_version']
+  action node['zeyple']['package_version'] ? :install : :upgrade
+end
+
+directory "#{node['zeyple']['data_dir']}/keys" do
+  owner node['zeyple']['user']
+  group node['zeyple']['user']
+  mode '0700'
+end
+
+node['zeyple']['gpg']['keys'].each do |key|
+  command_prefix = "gpg --homedir #{node['zeyple']['data_dir']}/keys --keyserver #{node['zeyple']['gpg']['server']}"
+
+  execute "#{command_prefix} --recv-keys #{key}" do
+    user node['zeyple']['user']
+    group node['zeyple']['user']
+    not_if "#{command_prefix} --list-keys #{key}", user: node['zeyple']['user'], group: node['zeyple']['user']
+  end
+end
+
+# the config belongs to root so the zeyple user can't modify it
+template node['zeyple']['config_file'] do
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+file node['zeyple']['log_file'] do
+  owner node['zeyple']['user']
+  group node['zeyple']['user']
+  mode '0600'
+end
 
 include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')
