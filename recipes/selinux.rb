@@ -7,8 +7,9 @@ directory File.dirname(zeyple_te)
 
 remote_file zeyple_te do
   source node['zeyple']['upstream']['selinux']['url']
-  owner node['zeyple']['user']
-  group node['zeyple']['user']
+  # root compiles it, so the zeyple user mustn't be able to modify it
+  owner 'root'
+  group 'root'
   mode '0400'
   checksum node['zeyple']['upstream']['selinux']['checksum']
   notifies :run, 'execute[compile_selinux_policy]', :immediately

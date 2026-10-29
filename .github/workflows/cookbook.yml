@@ -1,0 +1,56 @@
+name: Cookbook
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0" # run weekly on Sundays
+
+permissions:
+  contents: read
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+          bundler-cache: true
+      - name: Run Cookstyle
+        run: bundle exec rake style:all
+
+  kitchen:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [debian-12, debian-13, ubuntu-2404, ubuntu-2604]
+      fail-fast: false
+    env:
+      CHEF_LICENSE: accept-no-persist
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+          bundler-cache: true
+      - name: Run Test Kitchen
+        run: bundle exec kitchen test default-${{ matrix.platform }} --destroy=never
+      - name: Show Postfix status
+        if: failure()
+        # kitchen-dokken runs each command without a shell, so run them one by one
+        run: |
+          on_instance() { bundle exec kitchen exec default-${{ matrix.platform }} -c "$1" || true; }
+          on_instance 'postfix check'
+          on_instance 'systemctl cat postfix.service'
+          on_instance 'systemctl status postfix* --no-pager --full --lines=50'
+          on_instance 'journalctl --no-pager --lines=100'
+          on_instance 'cat /etc/hosts /proc/net/if_inet6'
+      - name: Destroy instance
+        if: always()
+        run: bundle exec kitchen destroy default-${{ matrix.platform }}
