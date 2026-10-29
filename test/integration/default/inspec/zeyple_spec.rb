@@ -20,10 +20,26 @@ control 'zeyple-1' do
     its('owner') { should eq 'zeyple' }
   end
 
+  describe apt('https://deb.cyberbits.eu/zeyple') do
+    it { should exist }
+    it { should be_enabled }
+  end
+
+  describe package('zeyple') do
+    it { should be_installed }
+    its('version') { should cmp >= '3.0.0' }
+  end
+
   describe file('/usr/sbin/zeyple') do
     it { should be_file }
     its('owner') { should eq 'root' }
     its('mode') { should cmp '0755' }
+  end
+
+  describe file('/etc/postfix/master.cf') do
+    its('content') { should include 'argv=/usr/sbin/zeyple ${recipient}' }
+    # the package's post-install script didn't append its own copy
+    its('content') { should_not include '###BEGIN-ZEYPLE' }
   end
 
   describe command('postconf -h zeyple_destination_recipient_limit') do
