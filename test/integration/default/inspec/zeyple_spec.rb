@@ -11,7 +11,8 @@ control 'zeyple-1' do
 
   describe file('/etc/zeyple.conf') do
     it { should be_file }
-    its('owner') { should eq 'zeyple' }
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0644' }
   end
 
   describe file('/var/log/zeyple.log') do
@@ -19,10 +20,30 @@ control 'zeyple-1' do
     its('owner') { should eq 'zeyple' }
   end
 
+  describe apt('https://deb.cyberbits.eu/zeyple') do
+    it { should exist }
+    it { should be_enabled }
+  end
+
+  describe package('zeyple') do
+    it { should be_installed }
+    its('version') { should cmp >= '3.0.0' }
+  end
+
   describe file('/usr/sbin/zeyple') do
     it { should be_file }
-    its('owner') { should eq 'zeyple' }
-    it { should be_executable.by('owner') }
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0755' }
+  end
+
+  describe file('/etc/postfix/master.cf') do
+    its('content') { should include 'argv=/usr/sbin/zeyple ${recipient}' }
+    # the package's post-install script didn't append its own copy
+    its('content') { should_not include '###BEGIN-ZEYPLE' }
+  end
+
+  describe command('postconf -h zeyple_destination_recipient_limit') do
+    its('stdout') { should eq "1\n" }
   end
 
   describe command('ls -1 /var/lib/zeyple/keys/ | wc -l') do
@@ -42,7 +63,7 @@ control 'zeyple-2' do
   impact 1.0
 
   describe file('/var/log/zeyple.log') do
-    its('content') { should match(/INFO Recipient: root@[^\.]+\.vagrantup\.com/) }
+    its('content') { should match(/INFO Recipient: root@\S+/) }
     its('content') { should match(/INFO Key ID: None/) }
     its('content') { should match(/INFO Message <[^>]+> sent/) }
   end
