@@ -9,6 +9,9 @@ Zeyple CHANGELOG
 - Set `zeyple_destination_recipient_limit = 1` so Postfix runs Zeyple once per recipient
 - Install the Zeyple script and config as root so the zeyple user, which handles the emails, can't modify them
 - Make the log `zeyple:adm` 0640 like the package does, so the two don't flip it on every run
+- Set `force_encrypt = 1` by default like the package (new `force_encrypt` attribute): recipients without a key no longer get unencrypted emails
+- Stop instead of replacing another Postfix `content_filter`, and chain it after Zeyple with the new `next_content_filter` attribute
+- Let the package create the zeyple user and group instead of the recipe
 - Test on Debian 12, Debian 13, Ubuntu 24.04 and Ubuntu 26.04 with GitHub Actions instead of Travis CI
 
 ## v2.0.0
