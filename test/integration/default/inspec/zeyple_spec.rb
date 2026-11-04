@@ -4,7 +4,7 @@ control 'zeyple-1' do
 
   describe user('zeyple') do
     it { should exist }
-    its('groups') { should eq %w(zeyple) }
+    its('group') { should eq 'zeyple' }
     its('home') { should eq '/var/lib/zeyple' }
     its('shell') { should include 'nologin' }
   end
@@ -13,6 +13,7 @@ control 'zeyple-1' do
     it { should be_file }
     its('owner') { should eq 'root' }
     its('mode') { should cmp '0644' }
+    its('content') { should include 'force_encrypt = 0' }
   end
 
   describe file('/var/log/zeyple.log') do
@@ -44,6 +45,12 @@ control 'zeyple-1' do
 
   describe command('postconf -h zeyple_destination_recipient_limit') do
     its('stdout') { should eq "1\n" }
+  end
+
+  describe directory('/var/lib/zeyple/keys') do
+    its('owner') { should eq 'zeyple' }
+    its('group') { should eq 'zeyple' }
+    its('mode') { should cmp '0700' }
   end
 
   describe command('ls -1 /var/lib/zeyple/keys/ | wc -l') do

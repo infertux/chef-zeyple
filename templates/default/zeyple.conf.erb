@@ -1,5 +1,6 @@
 [zeyple]
 log_file = <%= node['zeyple']['log_file'] %>
+force_encrypt = <%= node['zeyple']['force_encrypt'] ? 1 : 0 %>
 
 [gpg]
 home = <%= "#{node['zeyple']['data_dir']}/keys" %>
