@@ -64,5 +64,7 @@ suites:
       - recipe[zeyple_test::default]
     attributes:
       zeyple:
+        # the test email goes to root, which has no key
+        force_encrypt: false
         gpg:
           keys: ["0xEEC73D5809A98A9B"]

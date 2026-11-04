@@ -3,12 +3,14 @@
 # Recipe:: default
 #
 
-# create the user first so the package's post-install script keeps it (with its own group and home)
-user node['zeyple']['user'] do
-  system true
-  shell '/usr/sbin/nologin'
-  home node['zeyple']['data_dir']
-  manage_home true
+# Postfix takes a single content_filter, so don't replace another one: chain it after Zeyple instead
+next_content_filter = node['zeyple']['next_content_filter'].to_s
+content_filters = [node['postfix']['main']['content_filter'].to_s]
+content_filters << shell_out('postconf', '-h', 'content_filter').stdout.strip if ::File.exist?('/usr/sbin/postconf')
+content_filters.each do |content_filter|
+  next if ['', 'zeyple', next_content_filter].include?(content_filter)
+  raise "Postfix's content_filter is already #{content_filter}: set node['zeyple']['next_content_filter'] " \
+        "to #{content_filter} to pass the emails on to it after Zeyple"
 end
 
 node.default['postfix']['master']['zeyple'] = {
@@ -33,7 +35,7 @@ node.default['postfix']['master']["#{node['zeyple']['relay']['host']}:#{node['ze
   command: 'smtpd',
   # one argument per line since master.cf continuation lines must be indented
   args: [
-    '-o content_filter=',
+    "-o content_filter=#{next_content_filter}",
     '-o receive_override_options=no_unknown_recipient_checks,no_header_body_checks,no_milters',
     '-o smtpd_helo_restrictions=',
     '-o smtpd_client_restrictions=',
@@ -62,6 +64,7 @@ end
 # (it replaces the copy older versions of this cookbook put at the same path);
 # it also ships /etc/zeyple.conf as a conffile, which the template below then manages:
 # apt_package keeps the existing file on upgrade (--force-confold)
+# the package also creates the zeyple system user and group
 package 'zeyple' do
   version node['zeyple']['package_version']
   action node['zeyple']['package_version'] ? :install : :upgrade
@@ -69,7 +72,7 @@ end
 
 directory "#{node['zeyple']['data_dir']}/keys" do
   owner node['zeyple']['user']
-  group node['zeyple']['user']
+  group node['zeyple']['group']
   mode '0700'
 end
 
@@ -78,8 +81,8 @@ node['zeyple']['gpg']['keys'].each do |key|
 
   execute "#{command_prefix} --recv-keys #{key}" do
     user node['zeyple']['user']
-    group node['zeyple']['user']
-    not_if "#{command_prefix} --list-keys #{key}", user: node['zeyple']['user'], group: node['zeyple']['user']
+    group node['zeyple']['group']
+    not_if "#{command_prefix} --list-keys #{key}", user: node['zeyple']['user']
   end
 end
 

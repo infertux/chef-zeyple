@@ -29,7 +29,23 @@ Zeyple's package is kept up to date on every Chef run. To pin a version instead:
 
 ```json
 "zeyple": {
-  "package_version": "3.0.0"
+  "package_version": "3.0.0-1"
+}
+```
+
+By default Zeyple drops emails to recipients without a key, like the package's default configuration. To send them unencrypted instead:
+
+```json
+"zeyple": {
+  "force_encrypt": false
+}
+```
+
+Postfix takes a single `content_filter`, and Zeyple needs it, so the recipe stops if another filter is already set. To keep that filter, pass the emails on to it after Zeyple:
+
+```json
+"zeyple": {
+  "next_content_filter": "smtp-amavis:[127.0.0.1]:10024"
 }
 ```
 
