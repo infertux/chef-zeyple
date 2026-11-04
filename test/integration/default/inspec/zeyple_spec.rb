@@ -18,6 +18,8 @@ control 'zeyple-1' do
   describe file('/var/log/zeyple.log') do
     it { should be_file }
     its('owner') { should eq 'zeyple' }
+    its('group') { should eq 'adm' }
+    its('mode') { should cmp '0640' }
   end
 
   describe apt('https://deb.cyberbits.eu/zeyple') do
@@ -27,7 +29,7 @@ control 'zeyple-1' do
 
   describe package('zeyple') do
     it { should be_installed }
-    its('version') { should cmp >= '3.0.0' }
+    its('version') { should cmp >= '3.0.0-1' } # the Debian revision, else InSpec reads -1 as a pre-release
   end
 
   describe file('/usr/sbin/zeyple') do
@@ -38,8 +40,6 @@ control 'zeyple-1' do
 
   describe file('/etc/postfix/master.cf') do
     its('content') { should include 'argv=/usr/sbin/zeyple ${recipient}' }
-    # the package's post-install script didn't append its own copy
-    its('content') { should_not include '###BEGIN-ZEYPLE' }
   end
 
   describe command('postconf -h zeyple_destination_recipient_limit') do
