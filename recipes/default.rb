@@ -48,7 +48,7 @@ node.default['postfix']['main']['content_filter'] = 'zeyple'
 # run Zeyple once per recipient so an error for one recipient doesn't affect the others
 node.default['postfix']['main']['zeyple_destination_recipient_limit'] = 1
 
-# the package's post-install script reloads Postfix and leaves its config alone when it already mentions Zeyple
+# the package doesn't touch the Postfix configuration: the attributes above plug Zeyple in
 include_recipe 'postfix::default'
 
 apt_repository 'zeyple' do
@@ -90,10 +90,11 @@ template node['zeyple']['config_file'] do
   mode '0644'
 end
 
+# like the package (and mail.log): the log names the recipients, so only the adm group may read it
 file node['zeyple']['log_file'] do
   owner node['zeyple']['user']
-  group node['zeyple']['user']
-  mode '0600'
+  group 'adm'
+  mode '0640'
 end
 
 include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')
