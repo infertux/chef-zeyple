@@ -99,5 +99,3 @@ file node['zeyple']['log_file'] do
   group 'adm'
   mode '0640'
 end
-
-include_recipe "#{cookbook_name}::selinux" if File.exist?('/sys/fs/selinux')

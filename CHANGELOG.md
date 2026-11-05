@@ -12,6 +12,7 @@ Zeyple CHANGELOG
 - Set `force_encrypt = 1` by default like the package (new `force_encrypt` attribute): recipients without a key no longer get unencrypted emails
 - Stop instead of replacing another Postfix `content_filter`, and chain it after Zeyple with the new `next_content_filter` attribute
 - Let the package create the zeyple user and group instead of the recipe
+- Drop the `selinux` recipe and the `version` and `upstream.selinux` attributes: Debian and Ubuntu use AppArmor, not SELinux
 - Test on Debian 12, Debian 13, Ubuntu 24.04 and Ubuntu 26.04 with GitHub Actions instead of Travis CI
 
 ## v2.0.0
