@@ -11,4 +11,4 @@ chef_version     '>= 18.0'
 supports 'debian'
 supports 'ubuntu'
 
-depends 'postfix', '~> 6.0'
+depends 'postfix', '~> 7.0'

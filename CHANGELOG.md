@@ -2,6 +2,7 @@ Zeyple CHANGELOG
 ================
 
 ## v3.0.0
+- Depend on the postfix cookbook ~> 7.0, which replaced its recipes and attributes with custom resources: plug Zeyple into the `postfix 'default'` resource (shared with other cookbooks like sanity) instead of setting `node['postfix']` attributes and including `postfix::default`
 - Install Zeyple 3.0.0 from its APT repository (https://deb.cyberbits.eu/zeyple/) instead of downloading the script (still at `/usr/sbin/zeyple`); the `dependencies` and `upstream.script` attributes are gone
 - Zeyple 3.0.0 requires Python 3 and `python3-gpg` instead of `python-gpgme`
 - Fetch keys from keyserver.ubuntu.com since the SKS keyserver pool behind keys.gnupg.net is gone
