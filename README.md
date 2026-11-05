@@ -10,7 +10,7 @@ Requirements
 
 - Chef or Cinc 18 or later
 - Debian 12, Debian 13, Ubuntu 24.04 or Ubuntu 26.04 (the platforms tested in CI)
-- Postfix (installed with the [postfix cookbook](https://supermarket.chef.io/cookbooks/postfix))
+- Postfix (installed with the [postfix cookbook](https://supermarket.chef.io/cookbooks/postfix) 7.0 or later)
 
 Usage
 -----
@@ -54,6 +54,9 @@ Add the `zeyple` recipe to your run list:
 ```json
 "recipe[zeyple]"
 ```
+
+The recipe plugs Zeyple into the postfix cookbook's `postfix 'default'` resource with `edit_resource`, declaring it if needed.
+If another cookbook also configures Postfix with that resource (e.g. [sanity](https://github.com/infertux/chef-sanity)), include the `zeyple` recipe after it so they share the same resource.
 
 License
 -------

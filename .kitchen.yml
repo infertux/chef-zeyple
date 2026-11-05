@@ -59,7 +59,6 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[postfix::server]
       - recipe[zeyple::default]
       - recipe[zeyple_test::default]
     attributes:
