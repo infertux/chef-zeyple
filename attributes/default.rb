@@ -36,8 +36,3 @@ default['zeyple']['relay']['port'] = '10026'
 default['zeyple']['gpg']['server'] = 'hkps://keyserver.ubuntu.com'
 # where the package installs the script
 default['zeyple']['script'] = '/usr/sbin/zeyple'
-
-default['zeyple']['version'] = '3.0.0'
-
-default['zeyple']['upstream']['selinux']['url'] = "https://raw.githubusercontent.com/infertux/zeyple/v#{node['zeyple']['version']}/selinux/zeyple.te"
-default['zeyple']['upstream']['selinux']['checksum'] = '2044cb49b77fd183f9d581135ef6998d3e55161275c9cb16ec8f0e0ef8a21453'
